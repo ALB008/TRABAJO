@@ -1,5 +1,5 @@
 @include('AdminHeader')
 
-<h1>Hola</h1>
+<h1>Holap</h1>
 
 @include('AdminFooter')
