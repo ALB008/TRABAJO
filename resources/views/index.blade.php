@@ -8,7 +8,20 @@
 </head>
 <body>
 
-    
+    <!--
+        @ antes de:
+        es necesario poner end
+        @ if (condicion)
+            argumento
+        @ endif
+
+        foreach - recorrer un array
+        forelse (@ empty) - recorrer un array y mostrar un mensaje si esta vacio
+
+        llamar variable { { variable } }
+    -->
+
+
 
 </body>
 </html>

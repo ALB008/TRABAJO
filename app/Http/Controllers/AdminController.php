@@ -19,3 +19,7 @@ class AdminController extends Controller
         return view('Users');
     }
 }
+
+
+//return view('name_view', ['variable_vista'=>$variable_controlador]).
+//Now() = para fecha y hora.
