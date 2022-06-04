@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('participates', function (Blueprint $table) {
-            $table->id('cod');
-            $table->unsignedBigInteger('user_');
-            $table->unsignedBigInteger('activity_');
-            $table->foreign('activity_')->references('cod')->on('activity');
-            $table->foreign('user_')->references('id')->on('user');
+        Schema::create('escribe', function (Blueprint $table) {
+            $table->id('cod_esc');
+            $table->integer('isbn_lib_esc');
+            $table->unsignedBigInteger('cod_aut_esc');
+            $table->foreign('isbn_lib_esc')->references('isbn_lib')->on('libro');
+            $table->foreign('cod_aut_esc')->references('cod_aut')->on('autor');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('participates');
+        Schema::dropIfExists('escribe');
     }
 };

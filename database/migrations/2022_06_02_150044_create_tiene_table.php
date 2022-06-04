@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('by', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('writer_');
-            $table->unsignedBigInteger('book_');
-            $table->foreign('writer_')->references('cod')->on(('writer'));
-            $table->foreign('book_')->references('id')->on(('book'));
+        Schema::create('tiene', function (Blueprint $table) {
+            $table->id('idT');
+            $table->integer('isbn_libT');
+            $table->unsignedBigInteger('cod_genT');
+            $table->foreign('isbn_libT')->references('isbn_lib')->on('libro');
+            $table->foreign('cod_genT')->references('cod_gen')->on('genero');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('by');
+        Schema::dropIfExists('tiene');
     }
 };

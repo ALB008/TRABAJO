@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('activity', function (Blueprint $table) {
-            $table->id('cod');
-            $table->string('name', 50);
-            $table->string('desc', 200);
-            $table->string('ubi', 30);
-            $table->string('time');
-            $table->integer('limit');
-            $table->string('durac', 5);
+        Schema::create('genero', function (Blueprint $table) {
+            $table->id('cod_gen');
+            $table->string('nom_gen', 20);
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activity');
+        Schema::dropIfExists('genero');
     }
 };

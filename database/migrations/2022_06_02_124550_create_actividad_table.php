@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('editorial', function (Blueprint $table) {
-            $table->id('cod');
-            $table->string('name', 50);
-            $table->string('city', 50);
-            $table->string('address', 70);
-            $table->string('phone', 15);
+        Schema::create('actividad', function (Blueprint $table) {
+            $table->id('cod_activ');
+            $table->string('nom_activ', 50);
+            $table->string('dia_activ', 1);
+            $table->string('hora_activ', 4);
+            $table->Integer('limit_activ');
+            $table->string('durac_activ', 5);
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('editorial');
+        Schema::dropIfExists('actividad');
     }
 };

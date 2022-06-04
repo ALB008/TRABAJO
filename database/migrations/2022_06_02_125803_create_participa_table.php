@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('account', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 15);
-            $table->string('pass', 15);
-            $table->integer('type');
+        Schema::create('participa', function (Blueprint $table) {
+            $table->id('cod_part');
+            $table->Integer('id_usu_part');
+            $table->unsignedBigInteger('cod_activ_part');
+            $table->foreign('id_usu_part')->references('id_usu')->on('usuario');
+            $table->foreign('cod_activ_part')->references('cod_activ')->on('actividad');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account');
+        Schema::dropIfExists('participa');
     }
 };
