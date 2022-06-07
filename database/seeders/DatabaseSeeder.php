@@ -4,6 +4,19 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Factories\EditorialFactory;
+use \App\Models\Usuario;
+use \App\Models\Actividad;
+use \App\Models\Autor;
+use \App\Models\Editorial;
+use \App\Models\Empleado;
+use \App\Models\Escribe;
+use \App\Models\Genero;
+use \App\Models\Libro;
+use \App\Models\Participa;
+use \App\Models\Prestamo;
+use \App\Models\Sistema;
+use \App\Models\Tiene;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +27,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+       return
+     \App\Models\Genero::factory()->create([
+         'nom_gen' => 'Aventura',
+     ]);
     }
 }
