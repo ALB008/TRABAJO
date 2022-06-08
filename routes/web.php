@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/books', [AdminController::class, 'books']);
 Route::get('/users', [AdminController::class, 'users']);
+Route::get('/generos', [AdminController::class, 'generos']);
 
 
 

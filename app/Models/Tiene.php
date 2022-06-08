@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tiene extends Model
 {
+    protected $table = "tiene";
     use HasFactory;
 }

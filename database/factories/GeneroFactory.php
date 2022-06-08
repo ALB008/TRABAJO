@@ -17,7 +17,8 @@ class GeneroFactory extends Factory
     public function definition()
     {
         return [
-            'nom_gen' => $this->faker->word(),
+            //
+            'nom_gen' =>$this->faker->name()
         ];
     }
 }

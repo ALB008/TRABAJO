@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Escribe extends Model
 {
+    protected $table = "escribe";
     use HasFactory;
 }

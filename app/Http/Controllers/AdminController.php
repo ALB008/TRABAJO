@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Genero;
 
 class AdminController extends Controller
 {
@@ -11,15 +12,20 @@ class AdminController extends Controller
         return view('admin');
     }
 
-    public function books(){
-        return view('Books');
+    public function libros(){
+        return view('Book');
     }
 
-    public function users(){
-        return view('Users');
+    public function usuarios(){
+        return view('User');
+    }
+    public function generos(){
+        $generos = Genero::all();
+        return view('generos', ['genero' =>$generos]);
     }
 }
 
 
 //return view('name_view', ['variable_vista'=>$variable_controlador]).
 //Now() = para fecha y hora.
+//dd($generos);

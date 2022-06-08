@@ -27,9 +27,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       return
-     \App\Models\Genero::factory()->create([
-         'nom_gen' => 'Aventura',
-     ]);
+        Genero::factory(5)->create();
+        Editorial::factory(5)->create();
+
     }
 }
