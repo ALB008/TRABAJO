@@ -15,7 +15,7 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('demo');
 });
 
 Route::get('/admin', [AdminController::class, 'admin']);
