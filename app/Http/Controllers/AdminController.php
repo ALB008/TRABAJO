@@ -19,10 +19,7 @@ class AdminController extends Controller
     public function usuarios(){
         return view('User');
     }
-    public function generos(){
-        $generos = Genero::all();
-        return view('generos', ['genero' =>$generos]);
-    }
+
 }
 
 

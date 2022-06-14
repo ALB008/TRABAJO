@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GeneroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,13 @@ Route::get('/', function () {
 Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/books', [AdminController::class, 'books']);
 Route::get('/users', [AdminController::class, 'users']);
-Route::get('/generos', [AdminController::class, 'generos']);
 
-
+//Generos
+Route::get('/generos', [GeneroController::class, 'generos'])->name('generos'); //name: es para poder acceder desde cualquier parte
+Route::get('/generos/nuevo', [GeneroController::class, 'create'])->name('generoNuevo');
+Route::post('/generos/storeGenero', [GeneroController::class, 'store'])->name('createGenero');
+Route::get('/generos/{cod_gen}', [GeneroController::class, 'view'])->name('viewGenero');
+Route::post('/generos/updateGenero', [GeneroController::class, 'update'])->name('updateGenero');
 
 Auth::routes();
 
