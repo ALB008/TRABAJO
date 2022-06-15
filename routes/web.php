@@ -29,6 +29,7 @@ Route::get('/generos/nuevo', [GeneroController::class, 'create'])->name('generoN
 Route::post('/generos/storeGenero', [GeneroController::class, 'store'])->name('createGenero');
 Route::get('/generos/{cod_gen}', [GeneroController::class, 'view'])->name('viewGenero');
 Route::post('/generos/updateGenero', [GeneroController::class, 'update'])->name('updateGenero');
+Route::get('/delete/{cod_gen}', [GeneroController::class, 'delete'])->name('deleteGenero');
 
 Auth::routes();
 

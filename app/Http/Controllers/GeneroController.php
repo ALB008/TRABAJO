@@ -16,18 +16,19 @@ class GeneroController extends Controller
     public function generos()
     {
         $generos = Genero::all();//orderBY('nom')->get
-        return view('generos', ['genero' =>$generos]);
+        return view('ViewsGenero/generos', ['genero' =>$generos]);
 
     }
 
     public function create()
     {
-        return view('create-genero');
+        return view('ViewsGenero/create-genero');
     }
 
 
     public function store(Request $request)
     {
+
         $genero = new Genero;
         $genero->nom_gen = $request->nom_gen;
         $genero->save();
@@ -37,22 +38,24 @@ class GeneroController extends Controller
 
     public function view($cod)
     {
-        $generos = Genero::find(); //where($cod = 'cod_gen');//find: encuentra la id
-        return view('update-genero', ['genero' =>$generos]);
+        $generos = Genero::where('id', $cod)->get();//find: encuentra la "id"
+        return view('ViewsGenero/update-genero', ['genero' =>$generos]);
     }
 
+    public function update(Request $request)
+    {
+        $genero = Genero::find($request->cod);
+        //todos lo campos
+        $genero->nom_gen = $request->name;
+        $genero->save();
 
-    public function edit(genero $genero)
-    {
-        //
-    }
-    public function update(Request $request, genero $genero)
-    {
-        //
+        return redirect()->route('generos');
     }
 
-    public function destroy(genero $genero)
+    public function delete($id)
     {
-        //
+        $genero = Genero::find($id);
+        $genero->delete();
+        return redirect()->route('generos');
     }
 }

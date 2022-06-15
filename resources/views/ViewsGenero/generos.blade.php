@@ -12,10 +12,11 @@
     <tbody>
         @forelse ( $genero as $genero)
             <tr>
-                <th>{{$genero->cod_gen}}</th>
+                <th>{{$genero->id}}</th>
                 <th>{{$genero->nom_gen}}</th>
                 <th>{{$genero->created_at}}</th>
-                <th><a href="{{route('viewGenero', $genero->cod_gen)}}">Editar</a></th>
+                <th><a href="{{route('viewGenero', $genero->id)}}">Editar</a>
+                <a href="{{route('deleteGenero', $genero->id)}}">Eliminar</a></th>
             </tr>
         @empty
             <tr>

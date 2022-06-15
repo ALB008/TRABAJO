@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tiene', function (Blueprint $table) {
-            $table->id('idT');
-            $table->integer('isbn_libT');
+            $table->id();
+            $table->unsignedBigInteger('isbn_libT');
             $table->unsignedBigInteger('cod_genT');
-            $table->foreign('isbn_libT')->references('isbn_lib')->on('libro');
-            $table->foreign('cod_genT')->references('cod_gen')->on('genero');
+            $table->foreign('isbn_libT')->references('id')->on('libro');
+            $table->foreign('cod_genT')->references('id')->on('genero');
             $table->timestamps();
         });
     }

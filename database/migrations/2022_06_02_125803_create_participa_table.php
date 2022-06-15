@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('participa', function (Blueprint $table) {
-            $table->id('cod_part');
-            $table->Integer('id_usu_part');
+            $table->id();
+            $table->unsignedBigInteger('id_usu_part');
             $table->unsignedBigInteger('cod_activ_part');
-            $table->foreign('id_usu_part')->references('id_usu')->on('usuario');
-            $table->foreign('cod_activ_part')->references('cod_activ')->on('actividad');
+            $table->foreign('id_usu_part')->references('id')->on('usuario');
+            $table->foreign('cod_activ_part')->references('id')->on('actividad');
             $table->timestamps();
         });
     }

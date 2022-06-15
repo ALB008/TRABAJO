@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('editorial', function (Blueprint $table) {
-            $table->id('cod_edit');
+            $table->id();
             $table->string('nom_edit', 50);
             $table->string('ciud_edit', 50);
             $table->string('direc_edit', 70);

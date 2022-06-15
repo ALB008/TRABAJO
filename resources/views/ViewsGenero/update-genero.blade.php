@@ -10,10 +10,13 @@
     <h1>Género literario</h1>
     <form action="{{route('updateGenero')}}" method="POST">
 
-        @csrf <!--Token necesario en los formularios de laravel-->
+        @csrf
+        <input type="text" name="cod" value="@foreach ($genero as $item){{ $item->id }}@endforeach">
 
         <label for="name">Nombre del genero:</label><br>
-        <input type="text" id="name" name="nom_gen" value="{{$genero->nom_gen}}"> <br> <br>
+        <input type="text" id="name" name="name" value="@foreach ($genero as $item){{ $item->nom_gen }}@endforeach"> <br> <br>
+
+
         <input type="submit" value="Enviar">
         <p><a href="{{route('generos')}}">Regresar</a></p>
     </form>

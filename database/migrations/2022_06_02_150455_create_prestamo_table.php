@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('prestamo', function (Blueprint $table) {
-            $table->id('id_pres');
-            $table->integer('id_usu_pres');
-            $table->integer('isbn_lib_pres');
+            $table->id();
+            $table->unsignedBigInteger('id_usu_pres');
+            $table->unsignedBigInteger('isbn_lib_pres');
             $table->date('Fpres_pres');
             $table->date('Fdev_pres');
             $table->string('estado_pres', 1);
-            $table->foreign('id_usu_pres')->references('id_usu')->on('usuario');
-            $table->foreign('isbn_lib_pres')->references('isbn_lib')->on('libro');
+            $table->foreign('id_usu_pres')->references('id')->on('usuario');
+            $table->foreign('isbn_lib_pres')->references('id')->on('libro');
             $table->timestamps();
         });
     }
