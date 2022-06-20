@@ -1,12 +1,13 @@
 <h1>Generos Literarios</h1>
+<p><a href="{{route('index')}}">Regresar</a></p>
 <p><a href="{{route('generoNuevo')}}">Nuevo Genero</a></p>
 <table>
     <thead>
         <tr>
-            <th>ID</th>
-            <th>NOMBRE</th>
-            <th>CREADA</th>
-            <th>OPCIONES</th>
+            <th>Cod</th>
+            <th>Nombre</th>
+            <th>Creación</th>
+            <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +16,7 @@
                 <th>{{$genero->id}}</th>
                 <th>{{$genero->nom_gen}}</th>
                 <th>{{$genero->created_at}}</th>
+                
                 <th><a href="{{route('viewGenero', $genero->id)}}">Editar</a>
                 <a href="{{route('deleteGenero', $genero->id)}}">Eliminar</a></th>
             </tr>
@@ -25,13 +27,6 @@
         @endforelse
     </tbody>
 </table>
-
-
-
-
-
-
-
 
 
 

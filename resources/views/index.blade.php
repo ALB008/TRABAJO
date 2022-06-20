@@ -8,6 +8,15 @@
 </head>
 <body>
 
+    <p><a href="{{route('generos')}}">Generos</a></p>
+    <p><a href="{{route('editoriales')}}">Editoriales</a></p>
+    <p><a href="{{route('actividades')}}">Actividades</a></p>
+    <p><a href="{{route('autores')}}">Autores</a></p>
+    <p><a href="{{route('empleados')}}">Empleados</a></p>
+    <p><a href="{{route('usuarios')}}">Usuarios</a></p>
+    <p><a href="{{route('libros')}}">Libros</a></p>
+    <p><a href="{{route('prestamos')}}">Prestamos</a></p>
+
     <!--
         @ antes de:
         es necesario poner end

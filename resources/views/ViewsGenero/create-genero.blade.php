@@ -10,9 +10,9 @@
     <h1>Nuevo género literario</h1>
     <form action="{{route('createGenero')}}" method="POST">
 
-        @csrf <!--Token necesario en los formularios de laravel-->
+        @csrf <!--Token necesario en los formularios de laravel/Para seguridad-->
 
-        <label for="name">Nombre del genero:</label><br>
+        <label for="name">Nombre:</label><br>
         <input type="text" id="name" name="nom_gen"> <br> <br>
         <input type="submit" value="Enviar">
         <p><a href="{{route('generos')}}">Regresar</a></p>

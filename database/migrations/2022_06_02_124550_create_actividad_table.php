@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom_activ', 50);
             $table->string('dia_activ', 1);
-            $table->string('hora_activ', 4);
+            $table->time('hora_activ');
             $table->Integer('limit_activ');
             $table->string('durac_activ', 5);
             $table->timestamps();

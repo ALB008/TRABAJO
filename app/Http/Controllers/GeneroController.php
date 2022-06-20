@@ -2,22 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\genero;
+use App\Models\Genero;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class GeneroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function generos()
     {
         $generos = Genero::all();//orderBY('nom')->get
         return view('ViewsGenero/generos', ['genero' =>$generos]);
-
     }
 
     public function create()
@@ -25,10 +19,8 @@ class GeneroController extends Controller
         return view('ViewsGenero/create-genero');
     }
 
-
     public function store(Request $request)
     {
-
         $genero = new Genero;
         $genero->nom_gen = $request->nom_gen;
         $genero->save();
@@ -52,9 +44,9 @@ class GeneroController extends Controller
         return redirect()->route('generos');
     }
 
-    public function delete($id)
+    public function delete($cod)
     {
-        $genero = Genero::find($id);
+        $genero = Genero::find($cod);
         $genero->delete();
         return redirect()->route('generos');
     }
