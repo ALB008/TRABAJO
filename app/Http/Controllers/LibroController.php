@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Libro;
+use App\Models\Editorial;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -11,12 +12,14 @@ class LibroController extends Controller
     public function libros()
     {
         $libros = Libro::all();
-        return view('ViewsLibro/libros', ['libro' =>$libros]);
+        $editoriales = Editorial::all();
+        return view('ViewsLibro/libros', ['libro' =>$libros],['editoriales'=>$editoriales]);
     }
 
     public function create()
     {
-        return view('ViewsLibro.create-libro');
+        $editoriales = Editorial::all();
+        return view('ViewsLibro/create-libro', ['editoriales'=>$editoriales]);
     }
 
     public function store(Request $request)
@@ -36,7 +39,8 @@ class LibroController extends Controller
     public function view($cod)
     {
         $libros = Libro::where('id', $cod)->get();
-        return view('ViewsLibro/update-libro', ['libro' =>$libros]);
+        $editoriales = Editorial::all();
+        return view('ViewsLibro/update-libro', ['libro' =>$libros], ['editoriales'=>$editoriales]);
     }
 
     public function update(Request $request)

@@ -18,8 +18,14 @@
                 <th>{{$autor->id}}</th>
                 <th>{{$autor->nom_aut}}</th>
                 <th>{{$autor->orige_aut}}</th>
-                <th>{{$autor->estado_aut}}</th>
-                <th>{{$autor->created_at}}</th>
+                <th>
+                    @if ($autor->estado_aut == 1)
+                    <p>Vivo</p>
+                    @elseif ($autor->estado_aut == 0)
+                    <p>Muerto</p>
+                    @endif
+                </th>
+                    <th>{{$autor->created_at}} </th>
 
                 <th><a href="{{route('viewAutor', $autor->id)}}">Editar</a>
                 <a href="{{route('deleteAutor', $autor->id)}}">Eliminar</a></th>

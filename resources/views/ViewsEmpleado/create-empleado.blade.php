@@ -25,7 +25,12 @@
         <label for="email">Email:</label><br>
         <input type="text" id="name" name="email_emp"> <br>
         <label for="gen">Genero:</label><br>
-        <input type="text" id="gen" name="gen_emp"> <br>
+        <select name="gen_emp" id="gen">
+            <option value="1">Hombre</option>
+            <option value="2">Mujer</option>
+            <option value="3">Otro</option>
+        </select>
+        <br>
         <label for="educ">Nivel educativo:</label><br>
         <input type="text" id="educ" name="estud_emp"> <br>
 

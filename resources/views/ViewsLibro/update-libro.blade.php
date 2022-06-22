@@ -24,7 +24,14 @@
         <label for="paginas">Cantidad de páginas:</label><br>
         <input type="text" id="paginas" name="pag_lib" value="@foreach ($libro as $item){{ $item->pag_lib }}@endforeach"> <br>
         <label for="editorial">Editorial:</label><br>
-        <input type="text" id="editorial" name="cod_edit_lib" value="@foreach ($libro as $item){{ $item->cod_edit_lib }}@endforeach"> <br>
+        <select name="cod_edit_lib" id="editorial">
+            @foreach($editoriales as $editorial)
+                <option value="{{$editorial->id}}"
+                    @if ($editorial->id == $item->cod_edit_lib) @selected(true) @endif>
+                    {{$editorial->nom_edit}}
+                </option>
+            @endforeach
+        </select>
 
 
 

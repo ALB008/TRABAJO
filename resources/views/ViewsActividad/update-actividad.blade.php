@@ -17,15 +17,23 @@
         <input type="text" id="name" name="nom_activ" value="@foreach ($actividad as $item){{ $item->nom_activ }}@endforeach"> <br>
 
         <label for="dia">Día de realización:</label><br>
-        <input type="text" id="dia" name="dia_activ" value="@foreach ($actividad as $item){{ $item->dia_activ }}@endforeach"> <br>
+        <select name="dia_activ" id="dia">
+            <option value="1"@if ($item->dia_activ == 1) @selected(true) @endif>Lunes</option>
+            <option value="2"@if ($item->dia_activ == 2) @selected(true) @endif>Martes</option>
+            <option value="3"@if ($item->dia_activ == 3) @selected(true) @endif>Miercoles</option>
+            <option value="4"@if ($item->dia_activ == 4) @selected(true) @endif>Jueves</option>
+            <option value="5"@if ($item->dia_activ == 5) @selected(true) @endif>Viernes</option>
+            <option value="6"@if ($item->dia_activ == 6) @selected(true) @endif>Sabado</option>
+        </select>
+        <br>
 
-        <label for="hora">Hora:</label><br>
+        <label for="hora">Hora de inicio:</label><br>
         <input type="time" id="hora" name="hora_activ" value="@foreach ($actividad as $item){{ $item->hora_activ }}@endforeach"> <br>
 
         <label for="limite">Limite de participantes:</label><br>
         <input type="text" id="limite" name="limit_activ" value="@foreach ($actividad as $item){{ $item->limit_activ }}@endforeach"><br>
 
-        <label for="duracion">Duración:</label><br>
+        <label for="duracion">Duración en horas:</label><br>
         <input type="text" id="duracion" name="durac_activ" value="@foreach ($actividad as $item){{ $item->durac_activ }}@endforeach"> <br>
 
 

@@ -28,10 +28,13 @@
         <label for="mail">Email:</label><br>
         <input type="text" id="mail" name="email_usu" value="@foreach ($usuario as $item){{ $item->email_usu }}@endforeach"> <br>
         <label for="genero">Genero:</label><br>
-        <input type="text" id="genero" name="gen_usu" value="@foreach ($usuario as $item){{ $item->gen_usu }}@endforeach"> <br>
+        <select name="gen_usu" id="gen">
+            <option value="1"@if ($item->gen_usu == 1) @selected(true) @endif>Hombre</option>
+            <option value="2"@if ($item->gen_usu == 2) @selected(true) @endif>Mujer</option>
+            <option value="3"@if ($item->gen_usu == 3) @selected(true) @endif>Otro</option>
+        </select>
 
-
-
+<br>
 
         <input type="submit" value="Enviar">
         <p><a href="{{route('usuarios')}}">Regresar</a></p>

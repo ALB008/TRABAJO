@@ -83,7 +83,7 @@ Route::get('/usuarios/{cod_usu}', [UsuarioController::class, 'view'])->name('vie
 Route::post('/usuarios/updateUsuario', [UsuarioController::class, 'update'])->name('updateUsuario');
 Route::get('/deleteUsuario/{cod_usu}', [UsuarioController::class, 'delete'])->name('deleteUsuario');
 
-//Libros boleano (estado) -- foranea (id editorial)
+//Libros boleano (estado) -- foranea (id editorial) NICE
 Route::get('/libros', [LibroController::class, 'libros'])->name('libros');
 Route::get('/libros/nuevo', [LibroController::class, 'create'])->name('libroNuevo');
 Route::post('/libros/storeLibro', [LibroController::class, 'store'])->name('createLibro');

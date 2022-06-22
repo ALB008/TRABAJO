@@ -24,7 +24,7 @@
 
         <br>
         <input type="submit" value="Enviar">
-        <p><a href="{{route('generos')}}">Regresar</a></p>
+        <p><a href="{{route('editoriales')}}">Regresar</a></p>
     </form>
 </body>
 </html>

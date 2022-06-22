@@ -26,7 +26,12 @@
         <label for="email">Email:</label><br>
         <input type="text" id="name" name="email_emp" value="@foreach ($empleado as $item){{ $item->email_emp }}@endforeach"> <br>
         <label for="gen">Genero:</label><br>
-        <input type="text" id="gen" name="gen_emp" value="@foreach ($empleado as $item){{ $item->gen_emp }}@endforeach"> <br>
+        <select name="gen_emp" id="gen">
+            <option value="1"@if ($item->gen_emp == 1) @selected(true) @endif>Hombre</option>
+            <option value="2"@if ($item->gen_emp == 2) @selected(true) @endif>Mujer</option>
+            <option value="3"@if ($item->gen_emp == 3) @selected(true) @endif>Otro</option>
+        </select>
+        <br>
         <label for="educ">Nivel educativo:</label><br>
         <input type="text" id="educ" name="estud_emp" value="@foreach ($empleado as $item){{ $item->estud_emp }}@endforeach"> <br>
 

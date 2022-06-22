@@ -14,10 +14,13 @@
 
         <label for="name">Nombre:</label><br>
         <input type="text" id="name" name="nom_aut"> <br>
-        <label for="origen">Lugar de Origen:</label><br>
+        <label for="origen">Pais de Origen:</label><br>
         <input type="text" id="origen" name="orige_aut"> <br>
         <label for="estado">Estado:</label><br>
-        <input type="text" id="estado" name="estado_aut"> <br>
+        <select name="estado_aut" id="estado">
+            <option value="1">Vivo</option>
+            <option value="0">Muerto</option>
+        </select>
 
         <br>
         <input type="submit" value="Enviar">

@@ -16,12 +16,14 @@
         <label for="name">Nombre:</label><br>
         <input type="text" id="name" name="nom_aut" value="@foreach ($autor as $item){{ $item->nom_aut }}@endforeach"> <br>
 
-        <label for="name">Lugar de origen:</label><br>
-        <input type="text" id="name" name="orige_aut" value="@foreach ($autor as $item){{ $item->orige_aut }}@endforeach"> <br>
+        <label for="origen">Pais de origen:</label><br>
+        <input type="text" id="orige" name="orige_aut" value="@foreach ($autor as $item){{ $item->orige_aut }}@endforeach"> <br>
 
-        <label for="name">Estado:</label><br>
-        <input type="text" id="name" name="estado_aut" value="@foreach ($autor as $item){{ $item->estado_aut }}@endforeach"> <br>
-
+        <label for="estado">Estado:</label><br>
+        <select name="estado_aut" id="estado">
+            <option value="1"@if ($item->estado_aut == 1) @selected(true) @endif>Vivo</option>
+            <option value="0"@if ($item->estado_aut == 0) @selected(true) @endif>Muerto</option>
+        </select>
 
 
         <br>

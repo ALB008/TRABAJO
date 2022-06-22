@@ -19,7 +19,24 @@
             <tr>
                 <th>{{$actividad->id}}</th>
                 <th>{{$actividad->nom_activ}}</th>
-                <th>{{$actividad->dia_activ}}</th>
+
+                <th>
+
+                        @if ($actividad->dia_activ == 1)
+                        <p>Lunes</p>
+                        @elseif ($actividad->dia_activ == 2)
+                        <p>Martes</p>
+                        @elseif ($actividad->dia_activ == 3)
+                        <p>Miercoles</p>
+                        @elseif ($actividad->dia_activ == 4)
+                        <p>Jueves</p>
+                        @elseif ($actividad->dia_activ == 5)
+                        <p>Viernes</p>
+                        @elseif ($actividad->dia_activ == 6)
+                        <p>Sabado</p>
+                        @endif
+                </th>
+
                 <th>{{$actividad->hora_activ}}</th>
                 <th>{{$actividad->limit_activ}}</th>
                 <th>{{$actividad->durac_activ}} horas</th>

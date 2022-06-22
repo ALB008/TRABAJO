@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Sistema;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         $empleado = new Empleado();
+        $empleado->id;
         $empleado->doc_emp = $request->doc_emp;
         $empleado->nom_emp = $request->nom_emp;
         $empleado->apell_emp = $request->apell_emp;
@@ -31,6 +33,13 @@ class EmpleadoController extends Controller
         $empleado->gen_emp = $request->gen_emp;
         $empleado->estud_emp = $request->estud_emp;
         $empleado->save();
+
+        $user = new Sistema();
+        $user->nom_sistem = $request->doc_emp;
+        $user->contra_sistem = $request->tel_emp;
+        $user->tipo_sistem = 1;
+        $user->id_emp_sistem = $request->id;
+        $user->save();
 
         return redirect()->route('empleados');
     }

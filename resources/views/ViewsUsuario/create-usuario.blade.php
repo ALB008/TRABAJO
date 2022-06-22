@@ -25,7 +25,11 @@
         <label for="mail">Email:</label><br>
         <input type="text" id="mail" name="email_usu"> <br>
         <label for="genero">Genero:</label><br>
-        <input type="text" id="genero" name="gen_usu"> <br>
+        <select name="gen_usu" id="gen">
+            <option value="1">Hombre</option>
+            <option value="2">Mujer</option>
+            <option value="3">Otro</option>
+        </select>
 
         <input type="hidden" id="name" name="id_emp_usu" value="3"> <br>
 

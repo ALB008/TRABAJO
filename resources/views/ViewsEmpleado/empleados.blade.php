@@ -25,7 +25,15 @@
                 <th>{{$empleado->nacim_emp}}</th>
                 <th>{{$empleado->tel_emp}}</th>
                 <th>{{$empleado->email_emp}}</th>
-                <th>{{$empleado->gen_emp}}</th>
+                <th>
+                    @if ($empleado->gen_emp == 1)
+                    <p>Hombre</p>
+                    @elseif ($empleado->gen_emp == 2)
+                    <p>Mujer</p>
+                    @elseif ($empleado->gen_emp == 3)
+                    <p>Otro</p>
+                    @endif
+                </th>
                 <th>{{$empleado->estud_emp}}</th>
 
                 <th>{{$empleado->created_at}}</th>

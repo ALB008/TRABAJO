@@ -15,12 +15,21 @@
         <label for="name">Nombre:</label><br>
         <input type="text" id="name" name="nom_activ"> <br>
         <label for="dia">Día de realización:</label><br>
-        <input type="text" id="dia" name="dia_activ"> <br>
-        <label for="hora">Hora:</label><br>
-        <input type="text" id="hora" name="hora_activ"> <br>
+        <select name="dia_activ" id="dia">
+            <option value="1">Lunes</option>
+            <option value="2">Martes</option>
+            <option value="3">Miercoles</option>
+            <option value="4">Jueves</option>
+            <option value="5">Viernes</option>
+            <option value="6">Sabado</option>
+        </select>
+
+        <br>
+        <label for="hora">Hora de inicio:</label><br>
+        <input type="time" id="hora" name="hora_activ"> <br>
         <label for="limite">Limite de participantes:</label><br>
         <input type="text" id="limite" name="limit_activ"> <br>
-        <label for="duracion">Duración:</label><br>
+        <label for="duracion">Duración en horas:</label><br>
         <input type="text" id="duracion" name="durac_activ"> <br>
 
 

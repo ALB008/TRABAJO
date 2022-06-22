@@ -11,7 +11,6 @@
             <th>Telefono</th>
             <th>Email</th>
             <th>Genero</th>
-            <th>Registrado por</th>
             <th>Creación</th>
             <th>Opciones</th>
         </tr>
@@ -25,8 +24,15 @@
                 <th>{{$usuario->nacim_usu}}</th>
                 <th>{{$usuario->tel_usu}}</th>
                 <th>{{$usuario->email_usu}}</th>
-                <th>{{$usuario->gen_usu}}</th>
-                <th>{{$usuario->id_emp_usu}}</th>
+                <th>
+                    @if ($usuario->gen_usu == 1)
+                    <p>Hombre</p>
+                    @elseif ($usuario->gen_usu == 2)
+                    <p>Mujer</p>
+                    @elseif ($usuario->gen_usu == 3)
+                    <p>Otro</p>
+                    @endif
+                </th>
                 <th>{{$usuario->created_at}}</th>
 
                 <th><a href="{{route('viewUsuario', $usuario->id)}}">Editar</a>
