@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Editorial;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\storeEditorial;
 
 class EditorialController extends Controller
 {
@@ -19,7 +20,7 @@ class EditorialController extends Controller
         return view('ViewsEditorial.create-editorial');
     }
 
-    public function store(Request $request)
+    public function store(storeEditorial $request)
     {
         $editorial = new Editorial();
         $editorial->nom_edit = $request->nom_edit;
@@ -36,7 +37,7 @@ class EditorialController extends Controller
         return view('ViewsEditorial/update-editorial', ['editorial' =>$editoriales]);
     }
 
-    public function update(Request $request)
+    public function update(storeEditorial $request)
     {
         $editorial = Editorial::find($request->cod);
         $editorial->nom_edit = $request->nom_edit;
@@ -48,7 +49,7 @@ class EditorialController extends Controller
         return redirect()->route('editoriales');
     }
 
-    public function destroy($cod)
+    public function delete($cod)
     {
         $editorial
          = Editorial::find($cod);

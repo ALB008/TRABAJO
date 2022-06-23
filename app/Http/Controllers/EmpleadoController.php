@@ -6,6 +6,7 @@ use App\Models\Empleado;
 use App\Models\Sistema;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\storeEmpleado;
 
 class EmpleadoController extends Controller
 {
@@ -20,25 +21,25 @@ class EmpleadoController extends Controller
         return view('ViewsEmpleado/create-empleado');
     }
 
-    public function store(Request $request)
+    public function store(storeEmpleado $request)
     {
         $empleado = new Empleado();
-        $empleado->id;
         $empleado->doc_emp = $request->doc_emp;
         $empleado->nom_emp = $request->nom_emp;
         $empleado->apell_emp = $request->apell_emp;
         $empleado->nacim_emp = $request->nacim_emp;
-        $empleado->tel_emp = $request->nom_emp;
+        $empleado->tel_emp = $request->tel_emp;
         $empleado->email_emp = $request->email_emp;
         $empleado->gen_emp = $request->gen_emp;
         $empleado->estud_emp = $request->estud_emp;
         $empleado->save();
 
+        $emp = Empleado::where('doc_emp', $request->doc_emp)->get();
         $user = new Sistema();
         $user->nom_sistem = $request->doc_emp;
         $user->contra_sistem = $request->tel_emp;
         $user->tipo_sistem = 1;
-        $user->id_emp_sistem = $request->id;
+        $user->id_emp_sistem = $request->doc_emp;
         $user->save();
 
         return redirect()->route('empleados');
@@ -50,14 +51,14 @@ class EmpleadoController extends Controller
         return view('ViewsEmpleado/update-empleado', ['empleado' =>$empleados]);
     }
 
-    public function update(Request $request)
+    public function update(storeEmpleado $request)
     {
         $empleado = Empleado::find($request->cod);
         $empleado->doc_emp = $request->doc_emp;
         $empleado->nom_emp = $request->nom_emp;
         $empleado->apell_emp = $request->apell_emp;
         $empleado->nacim_emp = $request->nacim_emp;
-        $empleado->tel_emp = $request->nom_emp;
+        $empleado->tel_emp = $request->tel_emp;
         $empleado->email_emp = $request->email_emp;
         $empleado->gen_emp = $request->gen_emp;
         $empleado->estud_emp = $request->estud_emp;

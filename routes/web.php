@@ -27,9 +27,12 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+Route::get('/demo', function () {
+    return view('demo');
+});
+
 Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/books', [AdminController::class, 'books']);
-Route::get('/users', [AdminController::class, 'users']);
 
 //////////////////////////////// T A B L A S /////////////////////////////////////////
 
@@ -40,6 +43,7 @@ Route::post('/generos/storeGenero', [GeneroController::class, 'store'])->name('c
 Route::get('/generos/{cod_gen}', [GeneroController::class, 'view'])->name('viewGenero');
 Route::post('/generos/updateGenero', [GeneroController::class, 'update'])->name('updateGenero');
 Route::get('/deleteGenero/{cod_gen}', [GeneroController::class, 'delete'])->name('deleteGenero');
+
 
 //Editoriales
 Route::get('/editoriales', [EditorialController::class, 'editoriales'])->name('editoriales');

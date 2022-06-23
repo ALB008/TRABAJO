@@ -14,10 +14,20 @@
         <input type="hidden" name="cod" value="@foreach ($autor as $item){{ $item->id }}@endforeach">
 
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_aut" value="@foreach ($autor as $item){{ $item->nom_aut }}@endforeach"> <br>
+        <input type="text" id="name" name="nom_aut" value="@foreach ($autor as $item){{ $item->nom_aut }}@endforeach">
+        <span style="color: red">
+            @error('nom_aut')
+            {{$message}}
+            @enderror
+        </span> <br>
 
         <label for="origen">Pais de origen:</label><br>
-        <input type="text" id="orige" name="orige_aut" value="@foreach ($autor as $item){{ $item->orige_aut }}@endforeach"> <br>
+        <input type="text" id="orige" name="orige_aut" value="@foreach ($autor as $item){{ $item->orige_aut }}@endforeach">
+        <span style="color: red">
+            @error('orige_aut')
+            {{$message}}
+            @enderror
+        </span> <br>
 
         <label for="estado">Estado:</label><br>
         <select name="estado_aut" id="estado">

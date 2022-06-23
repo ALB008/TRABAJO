@@ -4,6 +4,7 @@
 <table>
     <thead>
         <tr>
+
             <th>Doc</th>
             <th>Nombre</th>
             <th>Apellido</th>
@@ -48,3 +49,7 @@
         @endforelse
     </tbody>
 </table>
+@php
+//Obtener edad a partir de la fecha de nacimiento
+    //$date = Carbon::createFromDate(1970,19,12)->age;
+@endphp

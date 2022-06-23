@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Actividad;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\storeActividad;
 
 class ActividadController extends Controller
 {
@@ -19,7 +20,7 @@ class ActividadController extends Controller
         return view('ViewsActividad.create-actividad');
     }
 
-    public function store(Request $request)
+    public function store(storeActividad $request)
     {
         $actividad = new ACtividad;
         $actividad->nom_activ = $request->nom_activ;
@@ -38,7 +39,7 @@ class ActividadController extends Controller
         return view('ViewsActividad/update-actividad', ['actividad' =>$actividades]);
     }
 
-    public function update(Request $request)
+    public function update(storeActividad $request)
     {
         $actividad = Actividad::find($request->cod);
         $actividad->nom_activ = $request->nom_activ;

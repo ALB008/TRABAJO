@@ -14,17 +14,47 @@
         <input type="hidden" name="cod" value="@foreach ($empleado as $item){{ $item->id }}@endforeach">
 
         <label for="doc">N° Documento:</label><br>
-        <input type="text" id="doc" name="doc_emp" value="@foreach ($empleado as $item){{ $item->doc_emp }}@endforeach"> <br>
+        <input type="text" id="doc" name="doc_emp" value="@foreach ($empleado as $item){{ $item->doc_emp }}@endforeach">
+        <span style="color: red">
+            @error('doc_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_emp" value="@foreach ($empleado as $item){{ $item->nom_emp }}@endforeach"> <br>
+        <input type="text" id="name" name="nom_emp" value="@foreach ($empleado as $item){{ $item->nom_emp }}@endforeach">
+        <span style="color: red">
+            @error('nom_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="apell">Apellido:</label><br>
-        <input type="text" id="apell" name="apell_emp" value="@foreach ($empleado as $item){{ $item->apell_emp }}@endforeach"> <br>
+        <input type="text" id="apell" name="apell_emp" value="@foreach ($empleado as $item){{ $item->apell_emp }}@endforeach">
+        <span style="color: red">
+            @error('apell_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="nacim">Fecha de nacimiento:</label><br>
-        <input type="text" id="nacim" name="nacim_emp" value="@foreach ($empleado as $item){{ $item->nacim_emp }}@endforeach"> <br>
+        <input type="date" id="nacim" name="nacim_emp" value="@foreach ($empleado as $item){{ $item->nacim_emp }}@endforeach">
+        <span style="color: red">
+            @error('nacim_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="tel">Telefono:</label><br>
-        <input type="text" id="tel" name="tel_emp" value="@foreach ($empleado as $item){{ $item->tel_emp }}@endforeach"> <br>
+        <input type="text" id="tel" name="tel_emp" value="@foreach ($empleado as $item){{ $item->tel_emp }}@endforeach">
+        <span style="color: red">
+            @error('tel_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="email">Email:</label><br>
-        <input type="text" id="name" name="email_emp" value="@foreach ($empleado as $item){{ $item->email_emp }}@endforeach"> <br>
+        <input type="text" id="name" name="email_emp" value="@foreach ($empleado as $item){{ $item->email_emp }}@endforeach">
+        <span style="color: red">
+            @error('email_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="gen">Genero:</label><br>
         <select name="gen_emp" id="gen">
             <option value="1"@if ($item->gen_emp == 1) @selected(true) @endif>Hombre</option>
@@ -33,7 +63,12 @@
         </select>
         <br>
         <label for="educ">Nivel educativo:</label><br>
-        <input type="text" id="educ" name="estud_emp" value="@foreach ($empleado as $item){{ $item->estud_emp }}@endforeach"> <br>
+        <input type="text" id="educ" name="estud_emp" value="@foreach ($empleado as $item){{ $item->estud_emp }}@endforeach">
+        <span style="color: red">
+            @error('estud_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
 
 
         <br>

@@ -14,7 +14,14 @@
         <input type="hidden" name="cod" value="@foreach ($actividad as $item){{ $item->id }}@endforeach">
 
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_activ" value="@foreach ($actividad as $item){{ $item->nom_activ }}@endforeach"> <br>
+        <input type="text" id="name" name="nom_activ" value="@foreach ($actividad as $item){{ $item->nom_activ }}@endforeach">
+        <span style="color: red">
+            @error('nom_activ')
+            {{$message}}
+            @enderror
+        </span>
+
+        <br>
 
         <label for="dia">Día de realización:</label><br>
         <select name="dia_activ" id="dia">
@@ -28,13 +35,28 @@
         <br>
 
         <label for="hora">Hora de inicio:</label><br>
-        <input type="time" id="hora" name="hora_activ" value="@foreach ($actividad as $item){{ $item->hora_activ }}@endforeach"> <br>
+        <input type="time" id="hora" name="hora_activ" value="@foreach ($actividad as $item){{ $item->hora_activ }}@endforeach">
+        <span style="color: red">
+            @error('hora_activ')
+            {{$message}}
+            @enderror
+        </span> <br>
 
         <label for="limite">Limite de participantes:</label><br>
-        <input type="text" id="limite" name="limit_activ" value="@foreach ($actividad as $item){{ $item->limit_activ }}@endforeach"><br>
+        <input type="text" id="limite" name="limit_activ" value="@foreach ($actividad as $item){{ $item->limit_activ }}@endforeach">
+        <span style="color: red">
+            @error('limit_activ')
+            {{$message}}
+            @enderror
+        </span><br>
 
         <label for="duracion">Duración en horas:</label><br>
-        <input type="text" id="duracion" name="durac_activ" value="@foreach ($actividad as $item){{ $item->durac_activ }}@endforeach"> <br>
+        <input type="text" id="duracion" name="durac_activ" value="@foreach ($actividad as $item){{ $item->durac_activ }}@endforeach">
+        <span style="color: red">
+            @error('durac_activ')
+            {{$message}}
+            @enderror
+        </span> <br>
 
 
         <br>

@@ -13,9 +13,19 @@
         @csrf
 
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_aut"> <br>
-        <label for="origen">Pais de Origen:</label><br>
-        <input type="text" id="origen" name="orige_aut"> <br>
+        <input type="text" id="name" name="nom_aut">
+        <span style="color: red">
+            @error('nom_aut')
+            {{$message}}
+            @enderror
+        </span> <br>
+        <label for="origen">País de Origen:</label><br>
+        <input type="text" id="origen" name="orige_aut">
+        <span style="color: red">
+            @error('orige_aut')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="estado">Estado:</label><br>
         <select name="estado_aut" id="estado">
             <option value="1">Vivo</option>

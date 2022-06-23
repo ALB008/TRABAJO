@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\storeUsuario;
 
 class UsuarioController extends Controller
 {
@@ -19,7 +20,7 @@ class UsuarioController extends Controller
         return view('ViewsUsuario.create-usuario');
     }
 
-    public function store(Request $request)
+    public function store(storeUsuario $request)
     {
         $usuario = new Usuario;
         $usuario->doc_usu = $request->doc_usu;
@@ -41,7 +42,7 @@ class UsuarioController extends Controller
         return view('ViewsUsuario/update-usuario', ['usuario' =>$usuarios]);
     }
 
-    public function update(Request $request)
+    public function update(storeUsuario $request)
     {
         $usuario = Usuario::find($request->cod);
         $usuario->doc_usu = $request->doc_usu;

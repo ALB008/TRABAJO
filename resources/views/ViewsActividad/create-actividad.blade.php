@@ -13,7 +13,13 @@
         @csrf
 
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_activ"> <br>
+        <input type="text" id="name" name="nom_activ">
+        <span style="color: red">
+            @error('nom_activ')
+            {{$message}}
+            @enderror
+        </span>
+        <br>
         <label for="dia">Día de realización:</label><br>
         <select name="dia_activ" id="dia">
             <option value="1">Lunes</option>
@@ -26,11 +32,29 @@
 
         <br>
         <label for="hora">Hora de inicio:</label><br>
-        <input type="time" id="hora" name="hora_activ"> <br>
+        <input type="time" id="hora" name="hora_activ">
+        <span style="color: red">
+            @error('hora_activ')
+            {{$message}}
+            @enderror
+        </span>
+        <br>
         <label for="limite">Limite de participantes:</label><br>
-        <input type="text" id="limite" name="limit_activ"> <br>
+        <input type="text" id="limite" name="limit_activ">
+        <span style="color: red">
+            @error('limit_activ')
+            {{$message}}
+            @enderror
+        </span>
+        <br>
         <label for="duracion">Duración en horas:</label><br>
-        <input type="text" id="duracion" name="durac_activ"> <br>
+        <input type="text" id="duracion" name="durac_activ">
+        <span style="color: red">
+            @error('durac_activ')
+            {{$message}}
+            @enderror
+        </span>
+        <br>
 
 
         <br>

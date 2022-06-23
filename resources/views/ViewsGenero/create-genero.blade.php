@@ -13,7 +13,13 @@
         @csrf <!--Token necesario en los formularios de laravel/Para seguridad-->
 
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_gen"> <br> <br>
+        <input type="text" id="name" name="nom_gen">
+        <br>
+        <span style="color: red"> @error('nom_gen')
+        {{$message}}
+        @enderror
+    </span>
+        <br> <br>
         <input type="submit" value="Enviar">
         <p><a href="{{route('generos')}}">Regresar</a></p>
     </form>

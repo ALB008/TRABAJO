@@ -1,7 +1,6 @@
 
 <div class="container-fluid page-body-wrapper">
 
-
     <!--MENU LATERAL-->
   <nav class="sidebar sidebar-offcanvas" id="sidebar">
       <ul class="nav">
@@ -20,7 +19,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="">
             <span class="menu-title">Dashboard</span>
             <i class="mdi mdi-home menu-icon"></i>
           </a>
@@ -97,6 +96,7 @@
         </li>
       </ul>
     </nav>
+</div>
 
 
 

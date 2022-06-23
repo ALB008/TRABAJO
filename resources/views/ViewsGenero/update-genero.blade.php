@@ -14,9 +14,12 @@
         <input type="hidden" name="cod" value="@foreach ($genero as $item){{ $item->id }}@endforeach">
 
         <label for="name">Nombre del genero:</label><br>
-        <input type="text" id="name" name="name" value="@foreach ($genero as $item){{ $item->nom_gen }}@endforeach"> <br> <br>
-
-
+        <input type="text" id="name" name="name" value="@foreach ($genero as $item){{ $item->nom_gen }}@endforeach">
+        <span style="color: red"> @error('nom_gen')
+            {{$message}}
+            @enderror
+        </span>
+        <br> <br>
         <input type="submit" value="Enviar">
         <p><a href="{{route('generos')}}">Regresar</a></p>
     </form>

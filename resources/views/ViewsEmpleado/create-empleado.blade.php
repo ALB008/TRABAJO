@@ -13,17 +13,47 @@
         @csrf
 
         <label for="doc">N° Documento:</label><br>
-        <input type="text" id="doc" name="doc_emp"> <br>
+        <input type="text" id="doc" name="doc_emp">
+        <span style="color: red">
+            @error('doc_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_emp"> <br>
+        <input type="text" id="name" name="nom_emp">
+        <span style="color: red">
+            @error('nom_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="apell">Apellido:</label><br>
-        <input type="text" id="apell" name="apell_emp"> <br>
+        <input type="text" id="apell" name="apell_emp">
+        <span style="color: red">
+            @error('apell_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="nacim">Fecha de nacimiento:</label><br>
-        <input type="date" id="nacim" name="nacim_emp"> <br>
+        <input type="date" id="nacim" name="nacim_emp">
+        <span style="color: red">
+            @error('nacim_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="tel">Telefono:</label><br>
-        <input type="text" id="tel" name="tel_emp"> <br>
+        <input type="text" id="tel" name="tel_emp">
+        <span style="color: red">
+            @error('tel_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="email">Email:</label><br>
-        <input type="text" id="name" name="email_emp"> <br>
+        <input type="text" id="name" name="email_emp">
+        <span style="color: red">
+            @error('email_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="gen">Genero:</label><br>
         <select name="gen_emp" id="gen">
             <option value="1">Hombre</option>
@@ -32,7 +62,12 @@
         </select>
         <br>
         <label for="educ">Nivel educativo:</label><br>
-        <input type="text" id="educ" name="estud_emp"> <br>
+        <input type="text" id="educ" name="estud_emp">
+        <span style="color: red">
+            @error('estud_emp')
+            {{$message}}
+            @enderror
+        </span> <br>
 
 
 
