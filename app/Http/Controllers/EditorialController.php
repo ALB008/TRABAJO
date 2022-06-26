@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Editorial;
+use App\Models\Libro;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\storeEditorial;
@@ -51,10 +52,11 @@ class EditorialController extends Controller
 
     public function delete($cod)
     {
-        $editorial
-         = Editorial::find($cod);
-        $editorial
-        ->delete();
-        return redirect()->route('editoriales');
+        //$libros = Libro::where('cod_edit_lib', $cod)->get('id');
+        //$libro = Libro::find();
+        //$libros->delete();
+        $editorial = Editorial::find($cod);
+        $editorial->delete();
+        return redirect()->route('editoriales')->with('delete', 'ok');
     }
 }

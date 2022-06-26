@@ -13,15 +13,35 @@
         @csrf
 
         <label for="isbn">ISBN:</label><br>
-        <input type="text" id="isbn" name="isbn_lib"> <br>
+        <input type="text" id="isbn" name="isbn_lib">
+        <span style="color: red"> @error('isbn_lib')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="codigo">Código:</label><br>
-        <input type="text" id="codigo" name="cod_lib"> <br>
+        <input type="text" id="codigo" name="cod_lib">
+        <span style="color: red"> @error('cod_lib')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="titulo">Titulo:</label><br>
-        <input type="text" id="titulo" name="nom_lib"> <br>
+        <input type="text" id="titulo" name="nom_lib">
+        <span style="color: red"> @error('nom_lib')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="año">Año de publicación:</label><br>
-        <input type="text" id="año" name="anno_lib"> <br>
+        <input type="text" id="año" name="anno_lib">
+        <span style="color: red"> @error('anno_lib')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="paginas">Cantidad de páginas:</label><br>
-        <input type="text" id="paginas" name="pag_lib"> <br>
+        <input type="text" id="paginas" name="pag_lib">
+        <span style="color: red"> @error('pag_lib')
+            {{$message}}
+            @enderror
+        </span> <br>
 
         <label for="editorial">Editorial:</label><br>
         <select name="cod_edit_lib" id="editorial">

@@ -35,8 +35,7 @@
                 </th>
                 <th>{{$usuario->created_at}}</th>
 
-                <th><a href="{{route('viewUsuario', $usuario->id)}}">Editar</a>
-                <a href="{{route('deleteUsuario', $usuario->id)}}">Eliminar</a></th>
+                <th><a href="{{route('viewUsuario', $usuario->id)}}">Mas info</a></th>
             </tr>
         @empty
             <tr>
@@ -45,3 +44,15 @@
         @endforelse
     </tbody>
 </table>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (session('delete') == 'ok')
+<script>
+    Swal.fire(
+      'Eliminado!',
+      'El registro se ha eliminado correctamente!',
+      'success'
+      )
+</script>
+@endif

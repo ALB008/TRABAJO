@@ -57,7 +57,7 @@ class GeneroController extends Controller
     {
         $genero = Genero::find($request->cod);
         //todos lo campos
-        $genero->nom_gen = $request->name;
+        $genero->nom_gen = $request->nom_gen;
         $genero->save();
 
         return redirect()->route('generos');
@@ -67,6 +67,8 @@ class GeneroController extends Controller
     {
         $genero = Genero::find($cod);
         $genero->delete();
-        return redirect()->route('generos');
+        return redirect()->route('generos')->with('delete', 'ok');
     }
 }
+?>
+

@@ -13,7 +13,6 @@
             <th>Email</th>
             <th>Genero</th>
             <th>Nivel Educativo</th>
-            <th>Creación</th>
             <th>Opciones</th>
         </tr>
     </thead>
@@ -37,10 +36,7 @@
                 </th>
                 <th>{{$empleado->estud_emp}}</th>
 
-                <th>{{$empleado->created_at}}</th>
-
-                <th><a href="{{route('viewEmpleado', $empleado->id)}}">Editar</a>
-                <a href="{{route('deleteEmpleado', $empleado->id)}}">Eliminar</a></th>
+                <th><a href="{{route('viewEmpleado', $empleado->id)}}">Mas info</a></th>
             </tr>
         @empty
             <tr>
@@ -53,3 +49,15 @@
 //Obtener edad a partir de la fecha de nacimiento
     //$date = Carbon::createFromDate(1970,19,12)->age;
 @endphp
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (session('delete') == 'ok')
+<script>
+    Swal.fire(
+      'Eliminado!',
+      'El registro se ha eliminado correctamente!',
+      'success'
+      )
+</script>
+@endif

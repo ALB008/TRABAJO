@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Carbon\Carbon;
 
-class storeActividad extends FormRequest
+class storePrestamo extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,19 +25,15 @@ class storeActividad extends FormRequest
     public function rules()
     {
         return [
-            'nom_activ' => 'required|max:50',
-            'hora_activ' => 'required',
-            'limit_activ' => 'required|integer|digits_between:1,2',
-            'durac_activ' => 'required|integer|digits_between:1,1'
+
+            'Fdev_pres' => 'required'
         ];
     }
 
     public function messages(){
         return [
+            'required' => 'Este campo es necesario!',
 
-            'required' => "Esta campo es necesario!",
-            'integer' => "Este campo solo lo puedes llenar con números!",
-            'max' => "Este campo tiene más caracteres de los necesario!",
         ];
     }
 }

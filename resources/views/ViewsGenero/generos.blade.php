@@ -16,9 +16,11 @@
                 <th>{{$genero->id}}</th>
                 <th>{{$genero->nom_gen}}</th>
                 <th>{{$genero->created_at}}</th>
-                
-                <th><a href="{{route('viewGenero', $genero->id)}}">Editar</a>
-                <a href="{{route('deleteGenero', $genero->id)}}">Eliminar</a></th>
+
+                <th><a href="{{route('viewGenero', $genero->id)}}">Más info</a>
+
+                </th>
+
             </tr>
         @empty
             <tr>
@@ -31,19 +33,30 @@
 
 
 <!--
-@ forelse ($genero as $item)
+    @ forelse ($genero as $item)
     <li>{ {$ item} }</li>
-@ empty
+    @ empty
     <li>No hay datos registrados</li>
-@ endforelse
+    @ endforelse
 
-          Booleano
-<th>
-    @ if ($game->active)
+    Booleano
+    <th>
+        @ if ($game->active)
         <span style="color: green"> ACTIVO </span>
-    @ else
+        @ else
         <span style="color: red"> INACTIVO </span>
-    @ endif
-</th>
+        @ endif
+    </th>
 
 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (session('delete') == 'ok')
+<script>
+    Swal.fire(
+      'Eliminado!',
+      'El registro se ha eliminado correctamente!',
+      'success'
+      )
+</script>
+@endif

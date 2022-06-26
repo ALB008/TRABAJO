@@ -42,17 +42,15 @@ class UsuarioController extends Controller
         return view('ViewsUsuario/update-usuario', ['usuario' =>$usuarios]);
     }
 
-    public function update(storeUsuario $request)
+    public function update(Request $request)
     {
         $usuario = Usuario::find($request->cod);
-        $usuario->doc_usu = $request->doc_usu;
         $usuario->nom_usu = $request->nom_usu;
         $usuario->apell_usu = $request->apell_usu;
         $usuario->nacim_usu = $request->nacim_usu;
         $usuario->tel_usu = $request->tel_usu;
         $usuario->email_usu = $request->email_usu;
         $usuario->gen_usu = $request->gen_usu;
-        $usuario->id_emp_usu = $request->id_emp_usu;
         $usuario->save();
 
         return redirect()->route('usuarios');
@@ -62,6 +60,6 @@ class UsuarioController extends Controller
     {
         $usuario = Usuario::find($cod);
         $usuario->delete();
-        return redirect()->route('usuarios');
+        return redirect()->route('usuarios')->with('delete', 'ok');
     }
 }

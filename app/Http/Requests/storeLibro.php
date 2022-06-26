@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class storeEditorial extends FormRequest
+class storeLibro extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,11 @@ class storeEditorial extends FormRequest
     public function rules()
     {
         return [
-          'nom_edit' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
-          'ciud_edit' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
-          'direc_edit' => 'required|max:70',
-          'tel_edit' => 'required|numeric|digits_between:7,15'
+            'isbn_lib' => 'required|numeric|digits_between:6,13',
+            'cod_lib' => 'required|max:10|alpha_num',
+            'nom_lib' => 'required|max:50',
+            'anno_lib' => 'required|numeric|digits_between:2,4',
+            'pag_lib' => 'required|numeric|digits_between:2,4'
         ];
     }
 
@@ -37,8 +38,10 @@ class storeEditorial extends FormRequest
             'max' => 'Este campo contiene demasiados caracteres!',
             'regex' => 'En este campo solo puedes ingresar letras!',
             'numeric' => 'En este campo solo puedes ingresar números!',
-            'digits_between' => 'Porfavor ingresa un número telefónico válido!',
-
+            'isbn_lib.digits_between' => 'Porfavor ingresa un ISBN válido!',
+            'anno_lib.digits_between' => 'Porfavor ingresa un año válido!',
+            'pag_lib.digits_between' => 'Porfavor ingresa un cantidad de páginas válida!',
+            'alpha_num' => 'En este campo solo puedes ingresar números y letras'
         ];
     }
 }

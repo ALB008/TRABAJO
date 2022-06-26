@@ -27,8 +27,7 @@
                 </th>
                     <th>{{$autor->created_at}} </th>
 
-                <th><a href="{{route('viewAutor', $autor->id)}}">Editar</a>
-                <a href="{{route('deleteAutor', $autor->id)}}">Eliminar</a></th>
+                <th><a href="{{route('viewAutor', $autor->id)}}">Mas info</a></th>
             </tr>
         @empty
             <tr>
@@ -38,3 +37,14 @@
     </tbody>
 </table>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (session('delete') == 'ok')
+<script>
+    Swal.fire(
+      'Eliminado!',
+      'El registro se ha eliminado correctamente!',
+      'success'
+      )
+</script>
+@endif

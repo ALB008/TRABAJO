@@ -42,8 +42,7 @@
                 <th>{{$libro->created_at}}</th>
 
 
-                <th><a href="{{route('viewLibro', $libro->id)}}">Editar</a>
-                <a href="{{route('deleteLibro', $libro->id)}}">Eliminar</a></th>
+                <th><a href="{{route('viewLibro', $libro->id)}}">Mas info</a></th>
 
             </tr>
         @empty
@@ -56,3 +55,14 @@
     </tbody>
 </table>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (session('delete') == 'ok')
+<script>
+    Swal.fire(
+      'Eliminado!',
+      'El registro se ha eliminado correctamente!',
+      'success'
+      )
+</script>
+@endif

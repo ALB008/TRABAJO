@@ -6,6 +6,7 @@ use App\Models\Libro;
 use App\Models\Editorial;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\storeLibro;
 
 class LibroController extends Controller
 {
@@ -22,7 +23,7 @@ class LibroController extends Controller
         return view('ViewsLibro/create-libro', ['editoriales'=>$editoriales]);
     }
 
-    public function store(Request $request)
+    public function store(storeLibro $request)
     {
         $libro = new Libro;
         $libro->isbn_lib = $request->isbn_lib;
@@ -43,7 +44,7 @@ class LibroController extends Controller
         return view('ViewsLibro/update-libro', ['libro' =>$libros], ['editoriales'=>$editoriales]);
     }
 
-    public function update(Request $request)
+    public function update(storeLibro $request)
     {
         $libro = Libro::find($request->cod);
         $libro->isbn_lib = $request->isbn_lib;
@@ -62,6 +63,6 @@ class LibroController extends Controller
     {
         $libro = Libro::find($cod);
         $libro->delete();
-        return redirect()->route('libros');
+        return redirect()->route('libros')->with('delete', 'ok');
     }
 }

@@ -43,8 +43,34 @@
 
 
         <br>
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Actualizar">
+        <a id="fdelete" href="{{route('deleteEditorial', $item->id)}}"><input type="submit" value="Eliminar"></a>
         <p><a href="{{route('editoriales')}}">Regresar</a></p>
     </form>
 </body>
 </html>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.getElementById('fdelete').addEventListener('click', function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: "¿Deseas eliminar esta editorial?",
+                text: "También se eliminaran todos los libros de la editorial",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, estoy seguro!',
+                cancelButtonText: 'No, cancelar!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                   window.location = this.href;
+                }
+            })
+                    });
+
+</script>
+

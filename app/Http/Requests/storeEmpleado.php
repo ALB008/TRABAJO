@@ -24,10 +24,8 @@ class storeEmpleado extends FormRequest
      */
     public function rules()
     {
-        $date = Carbon::now();
-        $endDate = $date->subYears(18);
         return [
-            'doc_emp' => 'required|unique:empleado,doc_emp|numeric|digits_between:8,11', //No funciona la update
+            'doc_emp' => 'required|unique:empleado,doc_emp|numeric|digits_between:8,11',
             'nom_emp' => 'required|regex:/^[\pL\s\-]+$/u|max:40',
             'apell_emp' => 'required|regex:/^[\pL\s\-]+$/u|max:70',
             'nacim_emp' => 'required',

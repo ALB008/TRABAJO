@@ -34,13 +34,13 @@ class EmpleadoController extends Controller
         $empleado->estud_emp = $request->estud_emp;
         $empleado->save();
 
-        $emp = Empleado::where('doc_emp', $request->doc_emp)->get();
-        $user = new Sistema();
-        $user->nom_sistem = $request->doc_emp;
-        $user->contra_sistem = $request->tel_emp;
-        $user->tipo_sistem = 1;
-        $user->id_emp_sistem = $request->doc_emp;
-        $user->save();
+        //$emp = Empleado::where('doc_emp', $request->doc_emp)->get();
+        //$user = new Sistema();
+        //$user->nom_sistem = $request->doc_emp;
+        //$user->contra_sistem = $request->tel_emp;
+        //$user->tipo_sistem = 1;
+        //$user->id_emp_sistem = $emp->id;
+        //$user->save();
 
         return redirect()->route('empleados');
     }
@@ -51,10 +51,9 @@ class EmpleadoController extends Controller
         return view('ViewsEmpleado/update-empleado', ['empleado' =>$empleados]);
     }
 
-    public function update(storeEmpleado $request)
+    public function update(Request $request)
     {
         $empleado = Empleado::find($request->cod);
-        $empleado->doc_emp = $request->doc_emp;
         $empleado->nom_emp = $request->nom_emp;
         $empleado->apell_emp = $request->apell_emp;
         $empleado->nacim_emp = $request->nacim_emp;
@@ -71,6 +70,6 @@ class EmpleadoController extends Controller
     {
         $empleado = Empleado::find($cod);
         $empleado->delete();
-        return redirect()->route('empleados');
+        return redirect()->route('empleados')->with('delete', 'ok');
     }
 }

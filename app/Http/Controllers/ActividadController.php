@@ -57,6 +57,6 @@ class ActividadController extends Controller
     {
         $actividad = Actividad::find($cod);
         $actividad->delete();
-        return redirect()->route('actividades');
+        return redirect()->route('actividades')->with('delete', 'ok');
     }
 }

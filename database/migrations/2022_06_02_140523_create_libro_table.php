@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('libro', function (Blueprint $table) {
             $table->id();
-            $table->integer('isbn_lib');
+            $table->string('isbn_lib', 13);
             $table->string('cod_lib', 10);
             $table->string('nom_lib', 50);
             $table->string('estado_lib', 1);
-            $table->year('anno_lib');
+            $table->string('anno_lib', 4);
             $table->integer('pag_lib');
             $table->unsignedbigInteger('cod_edit_lib');
             $table->foreign('cod_edit_lib')->references('id')->on('editorial');

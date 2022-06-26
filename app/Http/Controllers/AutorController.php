@@ -59,6 +59,6 @@ class AutorController extends Controller
     {
         $autor = Autor::find($cod);
         $autor->delete();
-        return redirect()->route('autores');
+        return redirect()->route('autores')->with('delete', 'ok');
     }
 }

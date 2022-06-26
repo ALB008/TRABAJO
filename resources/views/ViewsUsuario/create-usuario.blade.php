@@ -13,17 +13,41 @@
         @csrf
 
         <label for="doc">Documento:</label><br>
-        <input type="text" id="doc" name="doc_usu"> <br>
+        <input type="text" id="doc" name="doc_usu">
+        <span style="color: red"> @error('doc_usu')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_usu"> <br>
+        <input type="text" id="name" name="nom_usu">
+        <span style="color: red"> @error('nom_usu')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="apell">Apellido:</label><br>
-        <input type="text" id="apell" name="apell_usu"> <br>
+        <input type="text" id="apell" name="apell_usu">
+        <span style="color: red"> @error('apell_usu')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="nacim">Fecha de nacimiento:</label><br>
-        <input type="date" id="nacim" name="nacim_usu"> <br>
+        <input type="date" id="nacim" name="nacim_usu">
+        <span style="color: red"> @error('nacim_usu')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="telefon">Telefono:</label><br>
-        <input type="text" id="telefon" name="tel_usu"> <br>
+        <input type="text" id="telefon" name="tel_usu">
+        <span style="color: red"> @error('tel_usu')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="mail">Email:</label><br>
-        <input type="text" id="mail" name="email_usu"> <br>
+        <input type="text" id="mail" name="email_usu">
+        <span style="color: red"> @error('email_usu')
+            {{$message}}
+            @enderror
+        </span> <br>
         <label for="genero">Genero:</label><br>
         <select name="gen_usu" id="gen">
             <option value="1">Hombre</option>
@@ -31,7 +55,7 @@
             <option value="3">Otro</option>
         </select>
 
-        <input type="hidden" id="name" name="id_emp_usu" value="3"> <br>
+        <input type="hidden" name="id_emp_usu" value="3"> <br>
 
 
 

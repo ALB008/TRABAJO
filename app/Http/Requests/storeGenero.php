@@ -6,25 +6,15 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class storeGenero extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
     public function rules()
     {
         return [
-            'nom_gen'=>'required|max:20',
+            'nom_gen'=>'required|max:20|regex:/^[\pL\s\-]+$/u',
         ];
     }
 
@@ -37,7 +27,8 @@ class storeGenero extends FormRequest
     public function messages(){
         return [
             'nom_gen.required' => 'Este campo es necesario!',
-            'nom_gen.max' => 'Este campo contiene demasidos caracteres!'
+            'nom_gen.max' => 'Este campo contiene demasidos caracteres!',
+            'regex' => 'En este campo solo puedes ingresar letras!'
         ];
     }
 }

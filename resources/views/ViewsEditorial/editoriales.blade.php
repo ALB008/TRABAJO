@@ -23,8 +23,7 @@
                 <th>{{$editorial->tel_edit}}</th>
                 <th>{{$editorial->created_at}}</th>
 
-                <th><a href="{{route('viewEditorial', $editorial->id)}}">Editar</a>
-                <a href="{{route('deleteEditorial', $editorial->id)}}">Eliminar</a></th>
+                <th><a href="{{route('viewEditorial', $editorial->id)}}">Mas info</a></th>
             </tr>
         @empty
             <tr>
@@ -34,3 +33,14 @@
     </tbody>
 </table>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (session('delete') == 'ok')
+<script>
+    Swal.fire(
+      'Eliminado!',
+      'El registro se ha eliminado correctamente!',
+      'success'
+      )
+</script>
+@endif

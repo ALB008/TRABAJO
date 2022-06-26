@@ -30,7 +30,19 @@
         llamar variable { { variable } }
     -->
 
-
-
 </body>
 </html>
+
+{{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    Swal.fire({
+  title: 'Bienvenido',
+  showClass: {
+    popup: 'animate__animated animate__fadeInDown'
+  },
+  hideClass: {
+    popup: 'animate__animated animate__fadeOutUp'
+  }
+})
+</script>
+ --}}

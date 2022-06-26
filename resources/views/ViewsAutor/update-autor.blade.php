@@ -37,8 +37,33 @@
 
 
         <br>
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Actualizar">
+        <a id="fdelete" href="{{route('deleteAutor', $item->id)}}"><input type="submit" value="Eliminar"></a>
         <p><a href="{{route('autores')}}">Regresar</a></p>
     </form>
 </body>
 </html>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    document.getElementById('fdelete').addEventListener('click', function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title:"¿Deseas eliminar a este autor",
+            text: "También eliminaras los libros en los que ha trabajado",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminarlo!',
+            cancelButtonText: 'No, cancelar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                window.location = this.href;
+                }
+            })
+        });
+</script>
+

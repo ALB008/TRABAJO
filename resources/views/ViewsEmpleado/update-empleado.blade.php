@@ -13,13 +13,7 @@
         @csrf
         <input type="hidden" name="cod" value="@foreach ($empleado as $item){{ $item->id }}@endforeach">
 
-        <label for="doc">N° Documento:</label><br>
-        <input type="text" id="doc" name="doc_emp" value="@foreach ($empleado as $item){{ $item->doc_emp }}@endforeach">
-        <span style="color: red">
-            @error('doc_emp')
-            {{$message}}
-            @enderror
-        </span> <br>
+
         <label for="name">Nombre:</label><br>
         <input type="text" id="name" name="nom_emp" value="@foreach ($empleado as $item){{ $item->nom_emp }}@endforeach">
         <span style="color: red">
@@ -72,8 +66,31 @@
 
 
         <br>
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Actualizar">
+        <a id="fdelete" href="{{route('deleteEmpleado', $item->id)}}"><input type="submit" value="Eliminar"></a>
         <p><a href="{{route('empleados')}}">Regresar</a></p>
     </form>
 </body>
 </html>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    document.getElementById('fdelete').addEventListener('click', function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: "¿Deseas eliminar a este bibliotecario?",
+            text: "Se eliminará de forma permanente",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminarlo!',
+            cancelButtonText: 'No, cancelar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                window.location = this.href;
+                }
+            })
+        });
+</script>

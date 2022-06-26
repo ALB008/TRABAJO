@@ -13,11 +13,23 @@
         @csrf
 
         <label for="usuario">Usuario:</label><br>
-        <input type="text" id="usuario" name="id_usu_pres"> <br>
+        <select name="id_usu_pres" id="usuario">
+            @foreach($usuarios as $usuario)
+            <option value="{{$usuario->id}}">{{$usuario->nom_usu}}</option>
+            @endforeach
+        </select><br>
         <label for="libro">Libro:</label><br>
-        <input type="text" id="libro" name="isbn_lib_pres"> <br>
+        <select name="isbn_lib_pres" id="libro">
+            @foreach($libros as $libro)
+            <option value="{{$libro->id}}">{{$libro->nom_lib}}</option>
+            @endforeach
+        </select> <br>
         <label for="fecha">Fecha de devolución:</label><br>
         <input type="date" id="fecha" name="Fdev_pres"> <br>
+        <span style="color: red"> @error('Fdev_pres')
+            {{$message}}
+            @enderror
+        </span>
 
         <input type="hidden" type="datetime" name="Fpres_pres"  value="<?php echo date("Y-m-d");?>">
         <input type="hidden" type="text" value="1">
