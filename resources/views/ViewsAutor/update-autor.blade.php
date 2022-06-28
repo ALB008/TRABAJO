@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
     <title>Autor</title>
-</head>
-<body>
-    <h1>Autor</h1>
-    <form action="{{route('updateAutor')}}" method="POST">
+
+    <div class="col-md-6 grid-margin stretch-card" style="">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Autor</h4>
+        <p class="card-description">Información del Autor </p>
+
+    <form class="forms-sample" action="{{route('updateAutor')}}" method="POST">
 
         @csrf
         <input type="hidden" name="cod" value="@foreach ($autor as $item){{ $item->id }}@endforeach">
 
+        <div class="form-group">
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_aut" value="@foreach ($autor as $item){{ $item->nom_aut }}@endforeach">
+        <input class="form-control" type="text" id="name" name="nom_aut" value="@foreach ($autor as $item){{ $item->nom_aut }}@endforeach">
         <span style="color: red">
             @error('nom_aut')
             {{$message}}
@@ -22,7 +25,7 @@
         </span> <br>
 
         <label for="origen">Pais de origen:</label><br>
-        <input type="text" id="orige" name="orige_aut" value="@foreach ($autor as $item){{ $item->orige_aut }}@endforeach">
+        <input class="form-control" type="text" id="orige" name="orige_aut" value="@foreach ($autor as $item){{ $item->orige_aut }}@endforeach">
         <span style="color: red">
             @error('orige_aut')
             {{$message}}
@@ -30,16 +33,16 @@
         </span> <br>
 
         <label for="estado">Estado:</label><br>
-        <select name="estado_aut" id="estado">
+        <select class="form-control-sm" name="estado_aut" id="estado">
             <option value="1"@if ($item->estado_aut == 1) @selected(true) @endif>Vivo</option>
             <option value="0"@if ($item->estado_aut == 0) @selected(true) @endif>Muerto</option>
         </select>
 
 
-        <br>
-        <input type="submit" value="Actualizar">
-        <a id="fdelete" href="{{route('deleteAutor', $item->id)}}"><input type="submit" value="Eliminar"></a>
-        <p><a href="{{route('autores')}}">Regresar</a></p>
+        <br> <br>
+        <input class="btn btn-gradient-primary mr-2" type="submit" value="Actualizar">
+        <a id="fdelete" href="{{route('deleteAutor', $item->id)}}"><input class="btn btn-gradient-primary mr-2" type="submit" value="Eliminar"></a>
+        <a class="btn btn-light" href="{{route('autores')}}">Regresar</a>
     </form>
 </body>
 </html>
@@ -67,3 +70,4 @@
         });
 </script>
 
+@include('layouts.partials.footer')

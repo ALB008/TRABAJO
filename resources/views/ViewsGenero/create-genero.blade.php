@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+
     <title>Nuevo Genero</title>
-</head>
-<body>
-    <h1>Nuevo género literario</h1>
+
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Nuevo Genero literario</h4>
+        <p class="card-description">Información del genero </p>
+
     <form action="{{route('createGenero')}}" method="POST">
 
         @csrf <!--Token necesario en los formularios de laravel/Para seguridad-->
 
+        <div class="form-group">
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_gen">
+        <input class="form-control" type="text" id="name" name="nom_gen">
         <br>
         <span style="color: red">
             @error('nom_gen')
@@ -21,8 +25,8 @@
             @enderror
         </span>
         <br> <br>
-        <input type="submit" value="Enviar">
-        <p><a href="{{route('generos')}}">Regresar</a></p>
+        <input class="btn btn-gradient-primary mr-2" type="submit" value="Registrar">
+        <a class="btn btn-light" href="{{route('generos')}}">Regresar</a>
     </form>
 </body>
 </html>
@@ -48,3 +52,4 @@
 
 -->
 
+@include('layouts.partials.footer')

@@ -1,7 +1,16 @@
-<h1>Actividades Recreativas</h1>
-<p><a href="{{route('index')}}">Regresar</a></p>
-<p><a href="{{route('actividadNuevo')}}">Nueva Actividad</a></p>
-<table>
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+<title>Actividades</title>
+<div class=" grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+
+          <button type="submit" class="btn btn-gradient-primary mr-2"><a style="text-decoration: none; color:white" href="{{route('actividadNuevo')}}">+ Nuevo</a></button>
+          <br>
+          <br><h3 >Actividades Recreativas</h3><br>
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Cod</th>
@@ -23,26 +32,26 @@
                 <th>
 
                         @if ($actividad->dia_activ == 1)
-                        <p>Lunes</p>
+                        Lunes
                         @elseif ($actividad->dia_activ == 2)
-                        <p>Martes</p>
+                        Martes
                         @elseif ($actividad->dia_activ == 3)
-                        <p>Miercoles</p>
+                        Miercoles
                         @elseif ($actividad->dia_activ == 4)
-                        <p>Jueves</p>
+                        Jueves
                         @elseif ($actividad->dia_activ == 5)
-                        <p>Viernes</p>
+                        Viernes
                         @elseif ($actividad->dia_activ == 6)
-                        <p>Sabado</p>
+                        Sabado
                         @endif
                 </th>
 
                 <th>{{$actividad->hora_activ}}</th>
-                <th>{{$actividad->limit_activ}}</th>
+                <th>{{$actividad->limit_activ}} participantes</th>
                 <th>{{$actividad->durac_activ}} horas</th>
                 <th>{{$actividad->created_at}}</th>
 
-                <th><a href="{{route('viewActividad', $actividad->id)}}">Mas info</a></th>
+                <th><a href="{{route('viewActividad', $actividad->id)}}">Más opciones</a></th>
             </tr>
         @empty
             <tr>
@@ -63,3 +72,5 @@
       )
 </script>
 @endif
+
+@include('layouts.partials.footer')

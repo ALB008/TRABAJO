@@ -1,7 +1,15 @@
-<h1>Libros</h1>
-<p><a href="{{route('index')}}">Regresar</a></p>
-<p><a href="{{route('libroNuevo')}}">Nuevo libro</a></p>
-<table>
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+<title>Libros</title>
+<div class=" grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+          <a class="btn btn-gradient-primary mr-2" href="{{route('libroNuevo')}}">+ Nuevo</a>
+          <br>
+          <br><h3>Libros</h3><br>
+<table class="table table-hover">
     <thead>
         <tr>
             <th>ISBN</th>
@@ -34,15 +42,15 @@
                     @endforelse
                 </th>
                 <th>@if ($libro->estado_lib == 1)
-                    <p>En biblioteca</p>
+                    En biblioteca
                     @else
-                    <p>Prestado</p>
+                    Prestado
                     @endif
                 </th>
                 <th>{{$libro->created_at}}</th>
 
 
-                <th><a href="{{route('viewLibro', $libro->id)}}">Mas info</a></th>
+                <th><a href="{{route('viewLibro', $libro->id)}}">Más opciones</a></th>
 
             </tr>
         @empty
@@ -66,3 +74,4 @@
       )
 </script>
 @endif
+@include('layouts.partials.footer')

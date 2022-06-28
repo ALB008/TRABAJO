@@ -1,7 +1,16 @@
-<h1>Autores</h1>
-<p><a href="{{route('index')}}">Regresar</a></p>
-<p><a href="{{route('autorNuevo')}}">Nuevo autor</a></p>
-<table>
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+<title>Autores</title>
+<div class=" grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+
+<a class="btn btn-gradient-primary mr-2" href="{{route('autorNuevo')}}">+ Nuevo</a>
+
+<br>
+<br><h3>Autores</h3><br>
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Cod</th>
@@ -20,14 +29,14 @@
                 <th>{{$autor->orige_aut}}</th>
                 <th>
                     @if ($autor->estado_aut == 1)
-                    <p>Vivo</p>
+                    Vivo
                     @elseif ($autor->estado_aut == 0)
-                    <p>Muerto</p>
+                    Muerto
                     @endif
                 </th>
                     <th>{{$autor->created_at}} </th>
 
-                <th><a href="{{route('viewAutor', $autor->id)}}">Mas info</a></th>
+                <th><a href="{{route('viewAutor', $autor->id)}}">Más opciones</a></th>
             </tr>
         @empty
             <tr>
@@ -48,3 +57,4 @@
       )
 </script>
 @endif
+@include('layouts.partials.footer')

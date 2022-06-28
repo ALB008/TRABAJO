@@ -1,7 +1,16 @@
-<h1>Generos Literarios</h1>
-<p><a href="{{route('index')}}">Regresar</a></p>
-<p><a href="{{route('generoNuevo')}}">Nuevo Genero</a></p>
-<table>
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+<title>Generos Literarios</title>
+
+<div class=" grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+
+          <a class="btn btn-gradient-primary mr-2" href="{{route('generoNuevo')}}">+ Nuevo</a>
+          <br>
+          <br><h3>Generos Literarios</h3><br>
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Cod</th>
@@ -17,7 +26,7 @@
                 <th>{{$genero->nom_gen}}</th>
                 <th>{{$genero->created_at}}</th>
 
-                <th><a href="{{route('viewGenero', $genero->id)}}">Más info</a>
+                <th><a href="{{route('viewGenero', $genero->id)}}">Más opciones</a>
 
                 </th>
 
@@ -60,3 +69,4 @@
       )
 </script>
 @endif
+@include('layouts.partials.footer')

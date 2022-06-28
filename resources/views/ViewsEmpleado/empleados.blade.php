@@ -1,7 +1,20 @@
-<h1>Bibliotecarios</h1>
-<p><a href="{{route('index')}}">Regresar</a></p>
-<p><a href="{{route('empleadoNuevo')}}">Nuevo Bibliotecario</a></p>
-<table>
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+<title>Bibliotecarios</title>
+
+
+
+
+<div class=" grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+
+          <a class="btn btn-gradient-primary mr-2" href="{{route('empleadoNuevo')}}">+ Nuevo</a>
+          <br>
+          <br><h3>Bibliotecarios</h3>
+<table class="table table-hover">
     <thead>
         <tr>
 
@@ -27,16 +40,16 @@
                 <th>{{$empleado->email_emp}}</th>
                 <th>
                     @if ($empleado->gen_emp == 1)
-                    <p>Hombre</p>
+                    Hombre
                     @elseif ($empleado->gen_emp == 2)
-                    <p>Mujer</p>
+                    Mujer
                     @elseif ($empleado->gen_emp == 3)
-                    <p>Otro</p>
+                    Otro
                     @endif
                 </th>
                 <th>{{$empleado->estud_emp}}</th>
 
-                <th><a href="{{route('viewEmpleado', $empleado->id)}}">Mas info</a></th>
+                <th><a href="{{route('viewEmpleado', $empleado->id)}}">Más opciones</a></th>
             </tr>
         @empty
             <tr>
@@ -61,3 +74,14 @@
       )
 </script>
 @endif
+
+@if (session('register') == 'ok')
+<script>
+    Swal.fire(
+      'Registrado!',
+      'El bibliotecario ha sido registrado! \nSu usuario y contraseña por defecto son su documento y telefono!',
+      'success'
+      )
+</script>
+@endif
+@include('layouts.partials.footer')

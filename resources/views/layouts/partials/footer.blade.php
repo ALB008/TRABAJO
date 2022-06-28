@@ -1,8 +1,3 @@
-@php
-    //{!! asset('theme/js/todolist.js') !!}
-@endphp
-
-
 <!--FOOTER-->
 <script src="{!! asset('theme/vendors/js/vendor.bundle.base.js') !!}"></script>
     <!-- endinject -->

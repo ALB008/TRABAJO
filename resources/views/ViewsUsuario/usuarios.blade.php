@@ -1,7 +1,16 @@
-<h1>Usuarios</h1>
-<p><a href="{{route('index')}}">Regresar</a></p>
-<p><a href="{{route('usuarioNuevo')}}">Nuevo Usuario</a></p>
-<table>
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+<title>Usuarios</title>
+
+<div class=" grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+          <a class="btn btn-gradient-primary mr-2" href="{{route('usuarioNuevo')}}">+ Nuevo</a>
+          <br>
+          <br><h3>Usuarios</h3><br>
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Documento</th>
@@ -26,16 +35,16 @@
                 <th>{{$usuario->email_usu}}</th>
                 <th>
                     @if ($usuario->gen_usu == 1)
-                    <p>Hombre</p>
+                    Hombre
                     @elseif ($usuario->gen_usu == 2)
-                    <p>Mujer</p>
+                    Mujer
                     @elseif ($usuario->gen_usu == 3)
-                    <p>Otro</p>
+                    Otro
                     @endif
                 </th>
                 <th>{{$usuario->created_at}}</th>
 
-                <th><a href="{{route('viewUsuario', $usuario->id)}}">Mas info</a></th>
+                <th><a href="{{route('viewUsuario', $usuario->id)}}">Más opciones</a></th>
             </tr>
         @empty
             <tr>
@@ -56,3 +65,4 @@
       )
 </script>
 @endif
+@include('layouts.partials.footer')

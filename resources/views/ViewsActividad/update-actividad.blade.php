@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+
     <title>Actividad</title>
-</head>
-<body>
-    <h1>Actividad recreativa</h1>
-    <form action="{{route('updateActividad')}}" method="POST">
+
+    <div class="col-md-6 grid-margin stretch-card" style="">
+    <div class="card">
+        <div class="card-body">
+        <h4 class="card-title">Actividad recreativa</h4>
+    <p class="card-description">Información de la Actividad </p>
+
+    <form class="forms-sample" action="{{route('updateActividad')}}" method="POST">
 
         @csrf
         <input type="hidden" name="cod" value="@foreach ($actividad as $item){{ $item->id }}@endforeach">
 
+        <div class="form-group">
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_activ" value="@foreach ($actividad as $item){{ $item->nom_activ }}@endforeach">
+        <input class="form-control" type="text" id="name" name="nom_activ" value="@foreach ($actividad as $item){{ $item->nom_activ }}@endforeach">
         <span style="color: red">
             @error('nom_activ')
             {{$message}}
@@ -24,7 +28,7 @@
         <br>
 
         <label for="dia">Día de realización:</label><br>
-        <select name="dia_activ" id="dia">
+        <select class="form-control-sm" name="dia_activ" id="dia">
             <option value="1"@if ($item->dia_activ == 1) @selected(true) @endif>Lunes</option>
             <option value="2"@if ($item->dia_activ == 2) @selected(true) @endif>Martes</option>
             <option value="3"@if ($item->dia_activ == 3) @selected(true) @endif>Miercoles</option>
@@ -35,7 +39,7 @@
         <br>
 
         <label for="hora">Hora de inicio:</label><br>
-        <input type="time" id="hora" name="hora_activ" value="@foreach ($actividad as $item){{ $item->hora_activ }}@endforeach">
+        <input class="form-control" type="time" id="hora" name="hora_activ" value="@foreach ($actividad as $item){{ $item->hora_activ }}@endforeach">
         <span style="color: red">
             @error('hora_activ')
             {{$message}}
@@ -43,7 +47,7 @@
         </span> <br>
 
         <label for="limite">Limite de participantes:</label><br>
-        <input type="text" id="limite" name="limit_activ" value="@foreach ($actividad as $item){{ $item->limit_activ }}@endforeach">
+        <input class="form-control" type="text" id="limite" name="limit_activ" value="@foreach ($actividad as $item){{ $item->limit_activ }}@endforeach">
         <span style="color: red">
             @error('limit_activ')
             {{$message}}
@@ -51,18 +55,18 @@
         </span><br>
 
         <label for="duracion">Duración en horas:</label><br>
-        <input type="text" id="duracion" name="durac_activ" value="@foreach ($actividad as $item){{ $item->durac_activ }}@endforeach">
+        <input class="form-control" type="text" id="duracion" name="durac_activ" value="@foreach ($actividad as $item){{ $item->durac_activ }}@endforeach">
         <span style="color: red">
             @error('durac_activ')
             {{$message}}
             @enderror
         </span> <br>
 
-
+        </div>
         <br>
-        <input type="submit" value="Actualizar">
-        <a id="fdelete" href="{{route('deleteActividad', $item->id)}}"><input type="submit" value="Eliminar"></a>
-        <p><a href="{{route('actividades')}}">Regresar</a></p>
+        <input class="btn btn-gradient-primary mr-2" type="submit" value="Actualizar">
+        <a id="fdelete" href="{{route('deleteActividad', $item->id)}}"><input class="btn btn-gradient-primary mr-2" type="submit" value="Eliminar"></a>
+        <a class="btn btn-light" href="{{route('actividades')}}">Regresar</a>
     </form>
 </body>
 </html>
@@ -88,3 +92,4 @@
                     });
 
 </script>
+@include('layouts.partials.footer')

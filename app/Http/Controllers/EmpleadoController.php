@@ -34,15 +34,14 @@ class EmpleadoController extends Controller
         $empleado->estud_emp = $request->estud_emp;
         $empleado->save();
 
-        //$emp = Empleado::where('doc_emp', $request->doc_emp)->get();
-        //$user = new Sistema();
-        //$user->nom_sistem = $request->doc_emp;
-        //$user->contra_sistem = $request->tel_emp;
-        //$user->tipo_sistem = 1;
-        //$user->id_emp_sistem = $emp->id;
-        //$user->save();
+        $user = new Sistema();
+        $user->nom_sistem = $request->doc_emp;
+        $user->contra_sistem = $request->tel_emp;
+        $user->tipo_sistem = 1;
+        $user->id_emp_sistem = 1;
+        $user->save();
 
-        return redirect()->route('empleados');
+        return redirect()->route('empleados')->with('register', 'ok');
     }
 
     public function view($cod)

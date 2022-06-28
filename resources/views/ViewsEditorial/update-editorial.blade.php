@@ -1,40 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+
     <title>Editorial</title>
-</head>
-<body>
-    <h1>Editorial</h1>
-    <form action="{{route('updateEditorial')}}" method="POST">
+
+    <div class="col-md-6 grid-margin stretch-card" style="">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Editorial</h4>
+        <p class="card-description">Información de la Editorial </p>
+
+    <form class="forms-sample" action="{{route('updateEditorial')}}" method="POST">
 
         @csrf
         <input type="hidden" name="cod" value="@foreach ($editorial as $item){{ $item->id }}@endforeach">
 
+        <div class="form-group">
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_edit" value="@foreach ($editorial as $item){{ $item->nom_edit }}@endforeach">
+        <input class="form-control" type="text" id="name" name="nom_edit" value="@foreach ($editorial as $item){{ $item->nom_edit }}@endforeach">
         <span style="color: red">
             @error('nom_edit')
             {{$message}}
             @enderror
         </span><br>
         <label for="city">Ciudad:</label><br>
-        <input type="text" id="city" name="ciud_edit" value="@foreach ($editorial as $item){{ $item->ciud_edit }}@endforeach">
+        <input class="form-control" type="text" id="city" name="ciud_edit" value="@foreach ($editorial as $item){{ $item->ciud_edit }}@endforeach">
         <span style="color: red">
             @error('ciud_edit')
             {{$message}}
             @enderror
         </span> <br>
         <label for="address">Dirección:</label><br>
-        <input type="text" id="address" name="direc_edit" value="@foreach ($editorial as $item){{ $item->direc_edit }}@endforeach"> <span style="color: red">
+        <input class="form-control" type="text" id="address" name="direc_edit" value="@foreach ($editorial as $item){{ $item->direc_edit }}@endforeach"> <span style="color: red">
             @error('direc_edit')
             {{$message}}
             @enderror
         </span><br>
         <label for="phone">Telefono:</label><br>
-        <input type="text" id="phone" name="tel_edit" value="@foreach ($editorial as $item){{ $item->tel_edit }}@endforeach">
+        <input class="form-control" type="text" id="phone" name="tel_edit" value="@foreach ($editorial as $item){{ $item->tel_edit }}@endforeach">
         <span style="color: red">
             @error('tel_edit')
             {{$message}}
@@ -43,9 +47,9 @@
 
 
         <br>
-        <input type="submit" value="Actualizar">
-        <a id="fdelete" href="{{route('deleteEditorial', $item->id)}}"><input type="submit" value="Eliminar"></a>
-        <p><a href="{{route('editoriales')}}">Regresar</a></p>
+        <input class="btn btn-gradient-primary mr-2" type="submit" value="Actualizar">
+        <a id="fdelete" href="{{route('deleteEditorial', $item->id)}}"><input class="btn btn-gradient-primary mr-2" type="submit" value="Eliminar"></a>
+        <a class="btn btn-light" href="{{route('editoriales')}}">Regresar</a>
     </form>
 </body>
 </html>
@@ -73,4 +77,4 @@
                     });
 
 </script>
-
+@include('layouts.partials.footer')

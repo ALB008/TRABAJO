@@ -1,7 +1,19 @@
-<h1>Editoriales</h1>
-<p><a href="{{route('index')}}">Regresar</a></p>
-<p><a href="{{route('editorialNuevo')}}">Nueva Editorial</a></p>
-<table>
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+<title>Editoriales</title>
+
+<div class=" grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+
+<a class="btn btn-gradient-primary mr-2" href="{{route('editorialNuevo')}}">+ Nuevo</a>
+
+<br>
+<br><h3>Editoriales</h3><br>
+
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Cod</th>
@@ -23,7 +35,7 @@
                 <th>{{$editorial->tel_edit}}</th>
                 <th>{{$editorial->created_at}}</th>
 
-                <th><a href="{{route('viewEditorial', $editorial->id)}}">Mas info</a></th>
+                <th><a href="{{route('viewEditorial', $editorial->id)}}">Más opciones</a></th>
             </tr>
         @empty
             <tr>
@@ -44,3 +56,4 @@
       )
 </script>
 @endif
+@include('layouts.partials.footer')

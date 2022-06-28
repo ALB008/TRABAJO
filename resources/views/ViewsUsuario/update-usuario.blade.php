@@ -1,62 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+
     <title>Usuario</title>
-</head>
-<body>
-    <h1>Usuario</h1>
-    <form action="{{route('updateUsuario')}}" method="POST">
+    <div class="col-md-6 grid-margin stretch-card" style="">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Usuario</h4>
+        <p class="card-description">Información del Usuario</p>
+    <form class="forms-sample" action="{{route('updateUsuario')}}" method="POST">
 
         @csrf
         <input type="hidden" name="cod" value="@foreach ($usuario as $item){{ $item->id }}@endforeach">
 
         <input type="hidden" name="id_emp_usu" value="@foreach ($usuario as $item){{ $item->id_emp_usu }}@endforeach"> <br>
 
+        <div class="form-group">
         <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="nom_usu" value="@foreach ($usuario as $item){{ $item->nom_usu }}@endforeach">
+        <input class="form-control" type="text" id="name" name="nom_usu" value="@foreach ($usuario as $item){{ $item->nom_usu }}@endforeach">
         <span style="color: red"> @error('nom_usu')
             {{$message}}
             @enderror
         </span> <br>
         <label for="apell">Apellido:</label><br>
-        <input type="text" id="apell" name="apell_usu" value="@foreach ($usuario as $item){{ $item->apell_usu }}@endforeach">
+        <input class="form-control" type="text" id="apell" name="apell_usu" value="@foreach ($usuario as $item){{ $item->apell_usu }}@endforeach">
         <span style="color: red"> @error('apell_usu')
             {{$message}}
             @enderror
         </span> <br>
         <label for="nacim">Fecha de nacimiento:</label><br>
-        <input type="date" id="nacim" name="nacim_usu" value="@foreach ($usuario as $item){{ $item->nacim_usu }}@endforeach">
+        <input class="form-control" type="date" id="nacim" name="nacim_usu" value="@foreach ($usuario as $item){{ $item->nacim_usu }}@endforeach">
         <span style="color: red"> @error('nacim_usu')
             {{$message}}
             @enderror
         </span> <br>
         <label for="telefon">Telefono:</label><br>
-        <input type="text" id="telefon" name="tel_usu" value="@foreach ($usuario as $item){{ $item->tel_usu }}@endforeach">
+        <input class="form-control" type="text" id="telefon" name="tel_usu" value="@foreach ($usuario as $item){{ $item->tel_usu }}@endforeach">
         <span style="color: red"> @error('tel_usu')
             {{$message}}
             @enderror
         </span> <br>
         <label for="mail">Email:</label><br>
-        <input type="text" id="mail" name="email_usu" value="@foreach ($usuario as $item){{ $item->email_usu }}@endforeach">
+        <input class="form-control" type="text" id="mail" name="email_usu" value="@foreach ($usuario as $item){{ $item->email_usu }}@endforeach">
         <span style="color: red"> @error('email_usu')
             {{$message}}
             @enderror
         </span> <br>
         <label for="genero">Genero:</label><br>
-        <select name="gen_usu" id="gen">
+        <select class="form-control-sm" name="gen_usu" id="gen">
             <option value="1"@if ($item->gen_usu == 1) @selected(true) @endif>Hombre</option>
             <option value="2"@if ($item->gen_usu == 2) @selected(true) @endif>Mujer</option>
             <option value="3"@if ($item->gen_usu == 3) @selected(true) @endif>Otro</option>
         </select>
 
-<br>
 
-        <input type="submit" value="Actualizar">
-        <a id="fdelete" href="{{route('deleteUsuario', $item->id)}}"><input type="submit" value="Eliminar"></a>
-        <p><a href="{{route('usuarios')}}">Regresar</a></p>
+        <br>
+        <br>
+        <input class="btn btn-gradient-primary mr-2" type="submit" value="Actualizar">
+        <a id="fdelete" href="{{route('deleteUsuario', $item->id)}}"><input class="btn btn-gradient-primary mr-2" type="submit" value="Eliminar"></a>
+        <a class="btn btn-light" href="{{route('usuarios')}}">Regresar</a>
     </form>
 </body>
 </html>
@@ -82,3 +85,4 @@
             })
         });
 </script>
+@include('layouts.partials.footer')

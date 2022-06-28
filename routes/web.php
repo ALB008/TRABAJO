@@ -31,8 +31,6 @@ Route::get('/demo', function () {
     return view('demo');
 });
 
-Route::get('/admin', [AdminController::class, 'admin']);
-Route::get('/books', [AdminController::class, 'books']);
 
 //////////////////////////////// T A B L A S /////////////////////////////////////////
 
@@ -107,3 +105,4 @@ Route::get('/deletePrestamo/{cod_pres}', [PrestamoController::class, 'delete'])-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/empleado', [App\Http\Controllers\HomeController::class, 'empleados'])->name('empledo');

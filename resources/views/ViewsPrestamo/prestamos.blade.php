@@ -1,7 +1,15 @@
-<h1>Prestamos</h1>
-<p><a href="{{route('index')}}">Regresar</a></p>
-<p><a href="{{route('prestamoNuevo')}}">Nuevo prestamo</a></p>
-<table>
+
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+<title>Prestamos</title>
+<div class=" grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+          <a class="btn btn-gradient-primary mr-2" href="{{route('prestamoNuevo')}}">+ Nuevo</a>
+          <br>
+          <br><h3>Prestamos</h3><br>
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Cod</th>
@@ -37,13 +45,13 @@
                 <th>{{$prestamo->Fdev_pres}}</th>
                 <th>
                     @if ($prestamo->estado_pres == 1)
-                    <p>Activo</p>
+                    Activo
                     @elseif ($prestamo->estado_pres == 0)
-                    <p>Inactivo</p>
+                    Inactivo
                     @endif
                 </th>
 
-                <th><a href="{{route('viewPrestamo', $prestamo->id)}}">Mas info</a></th>
+                <th><a href="{{route('viewPrestamo', $prestamo->id)}}">Más opciones</a></th>
             </tr>
         @empty
             <tr>
@@ -64,3 +72,4 @@
       )
 </script>
 @endif
+@include('layouts.partials.footer')

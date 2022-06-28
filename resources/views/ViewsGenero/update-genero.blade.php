@@ -1,29 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+@include('layouts.partials.head')
+@include('layouts.partials.header')
+@include('layouts.partials.nav')
+
     <title>Género</title>
-</head>
-<body>
-    <h1>Género literario</h1>
+
+    <div class="col-md-6 grid-margin stretch-card" style="">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Genero Literario</h4>
+        <p class="card-description">Información del Genero </p>
     <form action="{{route('updateGenero')}}" method="POST">
 
         @csrf
         <input type="hidden" name="cod" value="@foreach ($genero as $item){{ $item->id }}@endforeach">
 
+        <div class="form-group">
         <label for="name">Nombre del genero:</label><br>
-        <input type="text" id="name" name="nom_gen"  value="@foreach ($genero as $item){{ $item->nom_gen }}@endforeach">
+        <input class="form-control" type="text" id="name" name="nom_gen"  value="@foreach ($genero as $item){{ $item->nom_gen }}@endforeach">
 
         <span style="color: red"> @error('nom_gen')
             {{$message}}
             @enderror
         </span>
         <br> <br>
-        <input type="submit" value="Actualizar">
-        <a id="fdelete" href="{{route('deleteGenero', $item->id)}}"><input type="submit" value="Eliminar"></a>
-        <p><a href="{{route('generos')}}">Regresar</a></p>
+        <input class="btn btn-gradient-primary mr-2" type="submit" value="Actualizar">
+        <a id="fdelete" href="{{route('deleteGenero', $item->id)}}"><input class="btn btn-gradient-primary mr-2" type="submit" value="Eliminar"></a>
+        <a class="btn btn-light" href="{{route('generos')}}">Regresar</a>
     </form>
 </body>
 </html>
@@ -50,3 +52,4 @@
         });
 </script>
 
+@include('layouts.partials.footer')
